@@ -5,7 +5,7 @@ __pycache__/
 
 # C extensions
 *.so
-
+node_modules/
 # Distribution / packaging
 .Python
 build/
@@ -93,6 +93,8 @@ ipython_config.py
 
 # PEP 582; used by e.g. github.com/David-OConnor/pyflow
 __pypackages__/
+/node_modules
+
 
 # Celery stuff
 celerybeat-schedule
@@ -127,3 +129,27 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
