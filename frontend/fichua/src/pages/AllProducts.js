@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../componets/Navbar';
 import Footer from '../componets/Footer';
 import SingleProduct from '../componets/SingleProduct';
 import Coat from '../img/c_t-shirt_men.png';
 
 function AllProducts() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar />

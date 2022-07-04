@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import Navbar from '../componets/Navbar';
 import Footer from '../componets/Footer';
@@ -7,6 +7,9 @@ import Coat from '../img/c_t-shirt_men.png';
 
 function SingleCategory() {
   const { name } = useParams();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar />

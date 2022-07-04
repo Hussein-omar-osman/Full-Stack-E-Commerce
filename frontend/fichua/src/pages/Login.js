@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '../componets/Navbar';
 import Footer from '../componets/Footer';
 import Coat from '../img/c_t-shirt_men.png';
 import { Link } from 'react-router-dom';
 
 function Login() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <Navbar />
