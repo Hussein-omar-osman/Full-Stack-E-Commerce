@@ -4,9 +4,11 @@ from django.urls import path, include, re_path
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
-    path('accounts/', include('accounts.urls')),
+    path('api/auth/', include('djoser.urls')),
+    path('api/auth/', include('djoser.urls.jwt')),
+    path('api/cart/', include('cart.api.urls')),
+    path('api/shop/', include('shop.api.urls')),
+    path('api/', include('api.urls')),
 ]
 
 urlpatterns += [re_path(r'^.*',
