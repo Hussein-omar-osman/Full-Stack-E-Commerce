@@ -80,7 +80,7 @@ function ProductPage() {
         <div className='container'>
           <div className='title text-center'>
             <h2 className='position-relative d-inline-block'>
-              Releted Products
+              Related Products
             </h2>
           </div>
 
