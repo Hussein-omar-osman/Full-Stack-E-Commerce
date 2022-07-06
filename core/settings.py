@@ -9,7 +9,7 @@ from dotenv import load_dotenv, find_dotenv
 import mimetypes
 
 mimetypes.add_type("text/css", ".css", True)
-mimetypes.add_type("text/javascript", ".js", True)
+mimetypes.add_type("application/javascript", ".js", True)
 load_dotenv(find_dotenv())
 
 BASE_DIR = dirname(dirname(abspath(__file__)))
@@ -28,7 +28,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 DISABLE_COLLECTSTATIC = 1
 
-CORS_ORIGIN_WHITELIST = ('https://fichua.herokuapp.com',)
+CORS_ORIGIN_WHITELIST = ('https://fichuastore.herokuapp.com',)
 
 INSTALLED_APPS = [
     'rest_framework',
