@@ -83,7 +83,7 @@ TEMPLATES = [
 WSGI_APPLICATION = 'core.wsgi.application'
 
 DATABASES = {'default': dj_database_url.config(
-    default='postgres://postgres:devmiano@localhost/fichuastore')}
+    default='postgres://postgres:devmiano@localhost/fichua')}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
