@@ -5,7 +5,6 @@ import dj_database_url
 import cloudinary.uploader
 from datetime import timedelta
 from os.path import join, dirname, abspath
-
 from dotenv import load_dotenv, find_dotenv
 import mimetypes
 
@@ -26,6 +25,8 @@ CORS_ALLOW_HEADERS = ['*']
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+DISABLE_COLLECTSTATIC = 1
 
 CORS_ORIGIN_WHITELIST = ('https://fichua.herokuapp.com',)
 
