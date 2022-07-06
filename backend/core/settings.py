@@ -5,8 +5,12 @@ import dj_database_url
 import cloudinary.uploader
 from datetime import timedelta
 from os.path import join, dirname, abspath
-from dotenv import load_dotenv, find_dotenv
 
+from dotenv import load_dotenv, find_dotenv
+import mimetypes
+
+mimetypes.add_type("text/css", ".css", True)
+mimetypes.add_type("text/javascript", ".js", True)
 load_dotenv(find_dotenv())
 
 BASE_DIR = dirname(dirname(abspath(__file__)))
@@ -178,7 +182,7 @@ STATIC_URL = '/static/'
 
 STATIC_ROOT = join(BASE_DIR, 'staticfiles')
 
-STATIC_FILES_DIRS = [join(BASE_DIR, 'static')],
+STATIC_FILES_DIRS = [join(BASE_DIR, 'build/static')],
 
 MEDIA_ROOT = join(BASE_DIR, 'media')
 
