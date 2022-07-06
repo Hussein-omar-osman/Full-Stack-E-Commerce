@@ -10,7 +10,7 @@ Clone repository from https://github.com/devmiano/fichua
 
 ### Backend
 
-''' -`python3 -m pip install --upgrade pip` Install or upgrade pip.
+-`python3 -m pip install --upgrade pip` Install or upgrade pip.
 
 - `python3 -m venv --without-pip env` Create a virtual environment.
 
@@ -22,8 +22,6 @@ Clone repository from https://github.com/devmiano/fichua
 
 - `touch .env` Create an env file in the root of the project, and use the `.env.sample` file to replace those credentials
   with valid ones.
-
-'''
 
 ### Frontend
 
