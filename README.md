@@ -23,6 +23,8 @@ Clone repository from https://github.com/devmiano/fichua
 - `touch .env` Create an env file in the root of the project, and use the `.env.sample` file to replace those credentials
   with valid ones.
 
+- Feel free to change the database configuration to sqlite for local development.
+
 ### Frontend
 
 - `node --version` and `npm --version`. Make sure you have **NodeJS** and **NPM** installed before proceeding.
