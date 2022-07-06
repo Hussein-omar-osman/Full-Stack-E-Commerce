@@ -16,17 +16,17 @@ def getRoutes(request):
         'reset password': '/api/auth/users/reset_password/',
         'confirm reset password': '/api/auth/users/reset_password_confirm/',
 
-        'carts': '/api/carts/',
-        'cartitems': '/api/cartitems/',
-        'cart': '/api/cart/<pk>',
-        'cartitem': '/api/cartitem/<pk>',
+        'carts': '/api/cart/all/',
+        'cartitems': '/api/cart/cartitems/',
+        'cart': '/api/cart/cart/<pk>',
+        'cartitem': '/api/cart/cartitem/<pk>',
 
-        'categories': '/api/categories/',
-        'category': '/api/category/<pk>',
-        'products': '/api/products/',
-        'product': '/api/product/<pk>',
-        'certain_category': '/api/certain_category/',
-        'similar_items': '/api/similar_items/',
+        'categories': 'api/shop/categories/',
+        'category': '/api/shop/category/<pk>',
+        'products': '/api/shop/products/',
+        'product': '/api/shop/product/<pk>',
+        'certain_category': '/api/shop/certain_category/',
+        'similar_items': '/api/shop/similar_items/',
     }
 
     return Response(routes)
