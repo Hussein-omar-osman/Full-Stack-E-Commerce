@@ -58,24 +58,3 @@ const OrderCard = () => {
 };
 
 export default OrderCard;
-
-{
-	/* <Row className='align-items-center w-100 justify-content-between'>
-	<Col md={1}></Col>
-	<Col md={5}>
-		<Card.Body></Card.Body>
-	</Col>
-	<Col md={2}></Col>
-	<Col md={2} className='justify-content-center'></Col>
-	<Col className='align-items-end justify-content-end'></Col>
-</Row>; */
-}
-
-// <Stack
-// 	className='justify-content-center'
-// 	direction='horizontal'
-// 	gap={4}></Stack>;
-
-{
-	/* <Container className='align-items-center pb-2' fluid></Container>; */
-}
