@@ -32,22 +32,22 @@ CORS_ORIGIN_WHITELIST = ('https://fichuastore.herokuapp.com',)
 
 INSTALLED_APPS = [
     'rest_framework',
+    'rest_framework_simplejwt.token_blacklist',
+    'corsheaders',
+    'cloudinary',
+    'ckeditor',
+    'djoser',
     'phonenumber_field',
     'rest_framework_simplejwt',
-    'rest_framework_simplejwt.token_blacklist',
+    'accounts',
+    'shop',
+    'cart',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'djoser',
-    'ckeditor',
-    'cloudinary',
-    'corsheaders',
-    'accounts',
-    'shop',
-    'cart',
 ]
 
 MIDDLEWARE = [
