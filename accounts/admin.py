@@ -1,9 +1,9 @@
+from django.contrib.auth.admin import UserAdmin
 from django.contrib import admin
 from .models import *
-# Register your models here.
 
 
-class UserAccountAdmin(admin.ModelAdmin):
+class UserAccountAdmin(UserAdmin):
     model = UserAccount
     list_display = ('name', 'email', 'contact')
 
