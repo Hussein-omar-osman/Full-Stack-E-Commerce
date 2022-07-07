@@ -14,5 +14,5 @@ class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {'slug': ('id',)}
 
 
-admin.site.register(Category),
-admin.site.register(Product),
+admin.site.register(Category, CategoryAdmin)
+admin.site.register(Product, ProductAdmin)
