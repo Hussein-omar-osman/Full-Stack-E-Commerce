@@ -5,6 +5,7 @@ from .models import *
 
 class UserAccountAdmin(UserAdmin):
     model = UserAccount
+    ordering = ['-email']
     list_display = ('name', 'email', 'contact')
 
 
