@@ -1,10 +1,10 @@
-from django.db import router
 import random
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from rest_framework import status
 from shop.models import Product, Category
 from .serializers import ProductSerializer, CategorySerializer, CertainCategory, SimilarItems
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 @api_view(['GET'])
