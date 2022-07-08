@@ -8,8 +8,15 @@ import Button from 'react-bootstrap/Button';
 import { MdClose } from 'react-icons/md';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import CardGroup from 'react-bootstrap/CardGroup';
+import { useStore } from '../app/store';
 
 const OrderCard = () => {
+	const count = useStore((state) => state.count);
+	const increment = useStore((state) => state.increment);
+	const decrement = useStore((state) => state.decrement);
+	const reset = useStore((state) => state.reset);
+	const price = 200;
+
 	return (
 		<Card
 			border='secondary'
@@ -30,23 +37,25 @@ const OrderCard = () => {
 					</Col>
 					<Col xs={3} className='ctr'>
 						<CardGroup className='align-items-center justify-content-between'>
-							<Button variant='outline-dark'>
+							<Button variant='outline-dark' onClick={decrement}>
 								<AiOutlineMinus />
 							</Button>
-							<Card.Subtitle className='text-muted p-3'>0</Card.Subtitle>
-							<Button>
+							<Card.Subtitle className='text-muted p-3'>{count}</Card.Subtitle>
+							<Button onClick={increment}>
 								<AiOutlinePlus />
 							</Button>
 						</CardGroup>
 					</Col>
 					<Col xs={2} className='ctr'>
 						<CardGroup className='justify-content-center align-items-center'>
-							<Card.Subtitle className='text-muted'>KES 20000</Card.Subtitle>
+							<Card.Subtitle className='text-muted'>
+								{count * price}
+							</Card.Subtitle>
 						</CardGroup>
 					</Col>
 					<Col xs={1} className='ctr'>
 						<CardGroup className='justify-content-end align-items-end'>
-							<Button variant='outline-danger'>
+							<Button variant='outline-danger' onClick={reset}>
 								<MdClose />
 							</Button>
 						</CardGroup>
