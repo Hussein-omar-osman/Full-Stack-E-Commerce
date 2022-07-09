@@ -50,6 +50,7 @@ function Collection() {
 						<div className='special-list mt-4 row gx-0 gy-3'>
 							{bestProducts.map((prod) => (
 								<SingleProduct
+									key={prod.id}
 									name={prod.name}
 									price={prod.price}
 									prodImage={prod.proImage}

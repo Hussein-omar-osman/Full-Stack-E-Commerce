@@ -13,3 +13,4 @@ export { default as Categories } from './Categories';
 export { default as Collection } from './Collection';
 export { default as Newsletter } from './Newsletter';
 export { default as SingleProduct } from './SingleProduct';
+export { default as SingleCategory } from './SingleCategory';

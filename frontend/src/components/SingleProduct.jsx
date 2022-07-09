@@ -4,7 +4,7 @@ import React from 'react';
 // import T_Shirt from '../assets/images/tShirt.jpg';
 import { Link } from 'react-router-dom';
 
-function SingleProduct({ name, price, prodImage }) {
+function SingleProduct({ id, name, price, prodImage }) {
 	// let imgScr;
 	// if (name === 'Coat') {
 	// 	imgScr = Coat;
@@ -14,7 +14,7 @@ function SingleProduct({ name, price, prodImage }) {
 	// 	imgScr = T_Shirt;
 	// }
 	return (
-		<div className='col-md-6 col-lg-4 col-xl-3 p-2 best'>
+		<div className='col-md-6 col-lg-4 col-xl-3 p-2 best' id={id}>
 			<div className='special-img collection-img position-relative'>
 				<Link to={'/product'}>
 					<img
@@ -37,10 +37,10 @@ function SingleProduct({ name, price, prodImage }) {
 						<i className='fas fa-star cl'></i>
 					</span>
 					<span className=''>
-						<i class='fa fa-star ucl'></i>
+						<i className='fa fa-star ucl'></i>
 					</span>
 					<span className=''>
-						<i class='fa fa-star ucl'></i>
+						<i className='fa fa-star ucl'></i>
 					</span>
 				</div>
 				<p className='text-capitalize my-1'>{name}</p>

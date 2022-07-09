@@ -4,6 +4,10 @@ import { persist } from 'zustand/middleware';
 
 let store = (set) => ({
 	count: 1,
+	categories: [],
+	loading: false,
+	hasErrors: false,
+
 	increment: () =>
 		set((state) => ({
 			count: state.count + 1,
@@ -15,9 +19,30 @@ let store = (set) => ({
 		})),
 
 	reset: () => set({ count: 1 }),
+
+	addCategories: (category) => {
+		set((state) => ({
+			categories: [...state.categories, category],
+		}));
+	},
+
+	fetchCategories: async () => {
+		set(() => ({ loading: true }));
+		try {
+			const response = await axios.get(
+				'https://fichuastore.herokuapp.com/api/shop/categories/'
+			);
+			set((state) => ({
+				categories: (state.categories = response.data),
+				loading: false,
+			}));
+		} catch (err) {
+			set(() => ({ hasErrors: true, loading: false }));
+		}
+	},
 });
 
-store = persist(store, { name: 'order' });
+store = persist(store, { name: 'store' });
 
 export const useStore = create(store);
 
@@ -55,3 +80,14 @@ export const useStore = create(store);
 // 		}
 // 	},
 // }));
+
+// let getCategories = (set) => ({
+// 	categoryAPI: categoryAPI,
+// 	categories: [],
+
+// 	fetchCategories: async (categoryAPI) => {
+// 		const response = await fetch(categoryAPI);
+// 		const json = await response.json();
+// 		set({ categories: json.items });
+// 	},
+// });
