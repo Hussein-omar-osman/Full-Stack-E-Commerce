@@ -3,6 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 virtual
+/virtual
 # C extensions
 *.so
 node_modules/
