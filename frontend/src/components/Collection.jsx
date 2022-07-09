@@ -1,49 +1,65 @@
 import React, { useState } from 'react';
 import SingleProduct from './SingleProduct';
 import { bestProducts, featuredProducts, newProducts } from './CollectionData';
-import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import { LinkContainer } from 'react-router-bootstrap';
+import Nav from 'react-bootstrap/Nav';
 
 function Collection() {
 	const [selected, setSelected] = useState('Best Sellers');
 
 	return (
 		<section id='collection' className='py-5'>
-			<div className='container'>
-				<div className='title text-center'>
-					<h2 className='position-relative d-inline-block'>New Collection</h2>
-				</div>
+			<div className=''>
+				<h2 className='title text-center'>New Collection</h2>
 
 				<div className='row g-0'>
 					<div className='d-flex flex-wrap justify-content-center mt-5 filter-button-group'>
-						<button
-							type='button'
-							className={`btn m-2 text-dark ${
-								selected === 'Best Sellers' ? 'active-filter-btn' : ''
-							}`}
-							onClick={() => setSelected('Best Sellers')}>
-							Best Sellers
-						</button>
-						<button
-							type='button'
-							className={`btn m-2 text-dark ${
-								selected === 'Featured' ? 'active-filter-btn' : ''
-							}`}
-							onClick={() => setSelected('Featured')}>
-							Featured
-						</button>
-						<button
-							type='button'
-							className={`btn m-2 text-dark ${
-								selected === 'New Arrival' ? 'active-filter-btn' : ''
-							}`}
-							onClick={() => setSelected('New Arrival')}>
-							New Arrival
-						</button>
-						<Link to={'/products'}>
-							<button type='button' className='btn m-2 text-dark'>
-								All
-							</button>
-						</Link>
+						<Nav fill variant='pills'>
+							<Nav.Item>
+								<Button
+									type='button'
+									variant='outline-secondary'
+									className={`m-2 ${
+										selected === 'Best Sellers' ? 'active-filter-btn' : ''
+									}`}
+									onClick={() => setSelected('Best Sellers')}>
+									Best Sellers
+								</Button>
+							</Nav.Item>
+							<Nav.Item>
+								<Button
+									variant='outline-secondary'
+									type='button'
+									className={`m-2 ${
+										selected === 'Featured' ? 'active-filter-btn' : ''
+									}`}
+									onClick={() => setSelected('Featured')}>
+									Featured
+								</Button>
+							</Nav.Item>
+							<Nav.Item>
+								<Button
+									variant='outline-secondary'
+									type='button'
+									className={`m-2 ${
+										selected === 'New Arrival' ? 'active-filter-btn' : ''
+									}`}
+									onClick={() => setSelected('New Arrival')}>
+									New Arrival
+								</Button>
+							</Nav.Item>
+							<Nav.Item>
+								<LinkContainer to={'/shop'}>
+									<Button
+										variant='outline-secondary'
+										type='button'
+										className='m-2'>
+										All
+									</Button>
+								</LinkContainer>
+							</Nav.Item>
+						</Nav>
 					</div>
 
 					{selected === 'Best Sellers' && (

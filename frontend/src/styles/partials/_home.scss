@@ -5,3 +5,9 @@
 #offers .row {
 	min-height: 60vh;
 }
+
+#carousel {
+	.item {
+		overflow: hidden;
+	}
+}
