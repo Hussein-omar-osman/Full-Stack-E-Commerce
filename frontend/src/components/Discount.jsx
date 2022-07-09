@@ -1,20 +1,28 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import { LinkContainer } from 'react-router-bootstrap';
 
 function Discount() {
 	return (
-		<section id='offers' className='py-5 rounded-3'>
-			<div className='container'>
+		<section id='offers' className='brs m-3'>
+			<div className='tint px-5 brs'>
 				<div className='row d-flex align-items-center justify-content-center text-center justify-content-lg-start text-lg-start'>
 					<div className='offers-content'>
-						<span className='text-white'>Discount Up To 20%</span>
-						<h2 className='mt-2 mb-2 text-white'>Grand Sale Offer!</h2>
+						<span className='text-secondary'>Discount Up To 20%</span>
+						<h2 className='mt-2 mb-2 text-white txt-xl text-lg-start'>
+							Grand Sale Offer!
+						</h2>
 						<div className='mb-4'>
-							<span className='text-white'>To All Products</span>
+							<span className='text-white'>For all Products</span>
 						</div>
-						<Link to={'/products'}>
-							<button className='outline-primary'>Buy Now</button>
-						</Link>
+						<LinkContainer to={'/products'}>
+							<Button
+								variant='primary'
+								type='button'
+								className='px-4 py-2 text-white '>
+								Buy Now
+							</Button>
+						</LinkContainer>
 					</div>
 				</div>
 			</div>

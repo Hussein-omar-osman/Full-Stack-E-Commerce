@@ -7,7 +7,7 @@ function Categories() {
 	const categories = useStore((state) => state.categories);
 	const loading = useStore((state) => state.loading);
 	const hasErrors = useStore((state) => state.hasErrors);
-	const fetchCategories = useStore((state) => state.fetchCategories);
+	// const fetchCategories = useStore((state) => state.fetchCategories);
 
 	if (loading) {
 		return <Spinner />;
@@ -20,14 +20,14 @@ function Categories() {
 	return (
 		<div className='container mt-5'>
 			<div className='title text-center'>
-				<h2 className='position-relative d-inline-block'>Categories</h2>
+				<h2 className='position-relative d-inline-block txt-xl'>Categories</h2>
 			</div>
 			<div className='d-flex justify-content-center mt-3'>
-				<span className='textC text-center text-muted'>
+				<span className='textC text-center text-dark'>
 					Finding Best Products Now in Your Fingertips
 				</span>
 			</div>
-			<button onClick={fetchCategories}>get category</button>
+			{/* <button onClick={fetchCategories}>get category</button> */}
 			<div className='row mt-2 g-4'>
 				{categories.map((category) => (
 					<SingleCategory

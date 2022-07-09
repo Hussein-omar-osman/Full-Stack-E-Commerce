@@ -17,20 +17,24 @@ const Banner = () => {
 	return (
 		<Carousel
 			id='carousel'
-			className='rounded-3'
+			className='rounded-3 p-3'
 			pause
 			activeIndex={index}
 			onSelect={handleSelect}
 			nextIcon={<BsFillArrowRightCircleFill className='banner-icon' />}
 			prevIcon={<BsFillArrowLeftCircleFill className='banner-icon' />}>
 			{deals.map((deal) => (
-				<Carousel.Item interval={9000} className='banner item'>
+				<Carousel.Item interval={9000} className='banner item' key={deal.id}>
 					<img className='banner-img' src={deal.photo} alt='First slide' />
 
 					<Carousel.Caption className='text-lg-start'>
-						<h1 className='text-lg-start text-secondary'>{deal.title}</h1>
+						<h1 className='text-lg-start txt-xl text-secondary'>
+							{deal.title}
+						</h1>
 						<h4 className='text-lg-start'>{deal.caption}</h4>
-						<Button variant='primary mt-2'>Discover</Button>
+						<Button variant='primary' className='mt-4 px-4 py-2 text-white'>
+							Discover
+						</Button>
 					</Carousel.Caption>
 				</Carousel.Item>
 			))}

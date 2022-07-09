@@ -1,25 +1,22 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { LinkContainer } from 'react-router-bootstrap';
 
 const SingleCategory = ({ name, categoryImage, slug }) => {
 	return (
 		<div className='col-md-3'>
-			<div className='cardC p-1'>
-				<Link to={`/category/${slug}`}>
+			<div className='ctcrd p-1'>
+				<LinkContainer to={`/category/${slug}`}>
 					<div className='d-flex justify-content-between align-items-center p-2'>
-						<div className='flex-column lh-1 imagename'>
-							<h6>{name}</h6>
-						</div>
-						<div>
-							<img
-								src={`https://res.cloudinary.com/fichua-store/${categoryImage}`}
-								height='100'
-								width='100'
-								alt={name}
-							/>
-						</div>
+						<div className='txtn text-dark '>{name}</div>
+						<img
+							src={`https://res.cloudinary.com/fichua-store/${categoryImage}`}
+							height='100'
+							width='100'
+							alt={name}
+							className='rounded-3'
+						/>
 					</div>
-				</Link>
+				</LinkContainer>
 			</div>
 		</div>
 	);

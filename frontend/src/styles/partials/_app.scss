@@ -58,7 +58,7 @@ p {
 .banner-icon {
 	opacity: 1;
 	font-size: 2.4rem;
-	color: $fichua_secondary;
+	color: $fichua_light;
 }
 
 .title {
@@ -67,6 +67,10 @@ p {
 
 .txt-b {
 	font-weight: 600;
+}
+
+.txt-xl {
+	font-weight: 700;
 }
 
 .btn-w {
@@ -98,4 +102,13 @@ p {
 	width: 8rem;
 	border: none !important;
 	background-color: $fichua_secondary !important;
+}
+
+.brs {
+	border-radius: 0.5rem;
+}
+
+.txt-sm {
+	font-weight: 300;
+	letter-spacing: 0.05rem;
 }
