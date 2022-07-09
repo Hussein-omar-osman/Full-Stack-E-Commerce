@@ -10,5 +10,7 @@ urlpatterns = [
     path('product/<pk>/', views.single_product),
     path('certain_category/<name>/', views.certain_category),
     path('similar_items/<name>/', views.similar_items),
+    path('review/', views.get_review),
+
 
 ]
