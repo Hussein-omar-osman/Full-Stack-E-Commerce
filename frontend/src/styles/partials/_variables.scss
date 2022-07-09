@@ -1,11 +1,11 @@
 /* make the customizations */
-$fichua_primary: rgba(0, 114, 187, 1);
-$fichua_secondary: rgba(101, 175, 255, 1);
+$fichua_primary: rgba(67, 97, 238, 1);
+$fichua_secondary: rgba(76, 201, 240, 1);
 $fichua_success: rgba(77, 204, 189, 1);
 $fichua_info: rgba(155, 197, 61, 1);
 $fichua_warning: rgba(253, 231, 76, 1);
 $fichua_danger: rgba(255, 132, 132, 1);
-$fichua_light: rgba(241, 245, 248, 1);
+$fichua_light: rgba(235, 242, 255, 1);
 $fichua_dark: rgba(15, 38, 107, 1);
 $fichua_black: rgba(2, 27, 80, 1);
 
@@ -20,16 +20,15 @@ $theme-colors: (
 	'dark': $fichua_dark,
 );
 
-$finladica: 'Finlandica', sans-serif;
 $poppins: 'Poppins', sans-serif;
+$finladica: 'Finlandica', sans-serif;
 
-$font-family-sans-serif: $poppins;
-$font-family-serif: $finladica;
-$font-family-base: $poppins;
-$body-color: $fichua_black;
-$white: $fichua_light;
 $blue: $fichua_primary;
+$body-color: $fichua_black;
+$font-family-base: $poppins;
 $gray-300: $fichua_secondary;
+$font-family-serif: $finladica;
+$font-family-sans-serif: $poppins;
 
 $carousel-control-opacity: 0.7;
 $carousel-control-hover-opacity: 1;

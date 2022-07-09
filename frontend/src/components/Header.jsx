@@ -23,7 +23,7 @@ const Header = () => {
 		<>
 			<Navbar
 				className='justify-content-center'
-				bg='light'
+				bg='white'
 				variant='primary'
 				sticky='top'>
 				<Nav variant='pills'>

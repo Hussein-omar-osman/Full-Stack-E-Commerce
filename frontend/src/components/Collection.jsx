@@ -19,8 +19,8 @@ function Collection() {
 							<Nav.Item>
 								<Button
 									type='button'
-									variant='outline-secondary'
-									className={`m-2 ${
+									variant='primary'
+									className={`m-2 cbtn ${
 										selected === 'Best Sellers' ? 'active-filter-btn' : ''
 									}`}
 									onClick={() => setSelected('Best Sellers')}>
@@ -29,9 +29,9 @@ function Collection() {
 							</Nav.Item>
 							<Nav.Item>
 								<Button
-									variant='outline-secondary'
+									variant='primary'
 									type='button'
-									className={`m-2 ${
+									className={`m-2 cbtn ${
 										selected === 'Featured' ? 'active-filter-btn' : ''
 									}`}
 									onClick={() => setSelected('Featured')}>
@@ -40,21 +40,18 @@ function Collection() {
 							</Nav.Item>
 							<Nav.Item>
 								<Button
-									variant='outline-secondary'
+									variant='primary'
 									type='button'
-									className={`m-2 ${
+									className={`m-2 cbtn ${
 										selected === 'New Arrival' ? 'active-filter-btn' : ''
 									}`}
 									onClick={() => setSelected('New Arrival')}>
-									New Arrival
+									New Arrivals
 								</Button>
 							</Nav.Item>
 							<Nav.Item>
 								<LinkContainer to={'/shop'}>
-									<Button
-										variant='outline-secondary'
-										type='button'
-										className='m-2'>
+									<Button variant='primary' type='button' className='m-2 cbtn'>
 										All
 									</Button>
 								</LinkContainer>
