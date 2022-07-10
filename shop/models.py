@@ -32,11 +32,11 @@ class Product(models.Model):
     img = CloudinaryField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     stock = models.IntegerField(default=0)
-    description = models.TextField()
+    details = models.TextField()
     slug = models.SlugField(max_length=200, unique=True)
     mfg = models.DateTimeField(auto_now_add=True)
     category = models.ForeignKey(
-        Category, on_delete=models.SET_NULL, null=True, related_name='products')
+        Category, on_delete=models.CASCADE, related_name='products')
     features = RichTextField(blank=True)
 
     class Meta:
@@ -52,7 +52,7 @@ class Review(models.Model):
     customer = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     comment = models.TextField(max_length=255, blank=True, null=True)
-    rate = models.IntegerField(default=0)
+    rating = models.IntegerField(default=0)
     created = models.DateTimeField('date created', default=timezone.now)
 
     def __str__(self):
