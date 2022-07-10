@@ -1,55 +1,50 @@
 import React from 'react';
-// import Coat from '../assets/images/c_t-shirt_men.png';
-// import Suit from '../assets/images/suit.jpg';
-// import T_Shirt from '../assets/images/tShirt.jpg';
-import { Link } from 'react-router-dom';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
+import { LinkContainer } from 'react-router-bootstrap';
 
-function SingleProduct({ name, price, prodImage }) {
-	// let imgScr;
-	// if (name === 'Coat') {
-	// 	imgScr = Coat;
-	// } else if (name === 'Suit') {
-	// 	imgScr = Suit;
-	// } else {
-	// 	imgScr = T_Shirt;
-	// }
+function SingleProduct({ id, name, price, prodImage }) {
 	return (
-		<div className='col-md-6 col-lg-4 col-xl-3 p-2 best'>
-			<div className='special-img collection-img position-relative'>
-				<Link to={'/product'}>
-					<img
-						src={prodImage}
-						className='w-100'
-						alt=''
-						style={{ width: '350px', height: '305px', objectFit: 'cover' }}
-					/>
-				</Link>
-			</div>
-			<div className='text-center'>
-				<div className='rating mt-3'>
-					<span className='text-primary'>
-						<i className='fas fa-star cl'></i>
-					</span>
-					<span className='text-primary'>
-						<i className='fas fa-star cl'></i>
-					</span>
-					<span className='text-primary'>
-						<i className='fas fa-star cl'></i>
-					</span>
-					<span className=''>
-						<i class='fa fa-star ucl'></i>
-					</span>
-					<span className=''>
-						<i class='fa fa-star ucl'></i>
-					</span>
+		<div
+			className='col-md-6 col-lg-4 col-xl-3 p-2 bg-light border-1 border-primary'
+			id={id}>
+			<LinkContainer to={'/product'}>
+				<div className=''>
+					<div className='special-img collection-img position-relative'>
+						<img
+							src={prodImage}
+							className='w-100'
+							alt=''
+							style={{ width: '350px', height: '305px', objectFit: 'cover' }}
+						/>
+					</div>
+					<div className='text-start'>
+						<p className='fw-bold text-capitalize my-1'>{name}</p>
+						<div className='rating'>
+							<span className='text-secondary'>
+								<FontAwesomeIcon icon={solid('star')} />
+							</span>
+							<span className='text-secondary'>
+								<FontAwesomeIcon icon={solid('star')} />
+							</span>
+							<span className='text-secondary'>
+								<FontAwesomeIcon icon={solid('star')} />
+							</span>
+							<span className=''>
+								<FontAwesomeIcon icon={solid('star')} />
+							</span>
+							<span className=''>
+								<FontAwesomeIcon icon={solid('star')} />
+							</span>
+						</div>
+						<div>
+							<span className='fw-bold text-lg-start'>
+								<span className='fw-light'>KES</span> {price}
+							</span>
+						</div>
+					</div>
 				</div>
-				<p className='text-capitalize my-1'>{name}</p>
-
-				<div>
-					<span className='fw-bold'>{price}</span>
-				</div>
-				<button className='btn btn-primary mt-3'>Add to Cart</button>
-			</div>
+			</LinkContainer>
 		</div>
 	);
 }

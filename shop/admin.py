@@ -10,7 +10,14 @@ class CategoryAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     model = Product
     list_display = ('name', 'price', 'stock', 'vendor')
+    prepopulated_fields = {'slug': ('name',)}
+
+
+class ReviewAdmin(admin.ModelAdmin):
+    model = Review
+    list_display = ('comment', 'rating')
 
 
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Product, ProductAdmin)
+admin.site.register(Review, ReviewAdmin)

@@ -1,12 +1,11 @@
 import random
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
-from shop.models import Product, Category
-from .serializers import ProductSerializer, CategorySerializer, CertainCategory, SimilarItems, UserProductSerializer, UserSerializer
+from rest_framework import status, generics
+from shop.models import *
+from .serializers import *
 from django.contrib.auth.mixins import LoginRequiredMixin
 from accounts.models import UserAccount
-
 
 
 @api_view(['GET'])
@@ -14,14 +13,16 @@ def get_links(request):
     endpoints = {
         'all': '/shop/',
         'categories': '/api/shop/categories/',
-        'category': '/api/shop/category/<pk>',
+        'category': '/api/shop/category/<pk>/',
         'products': '/api/shop/products/',
-        'product': '/api/shop/product/<pk>',
+        'product': '/api/shop/product/<pk>/',
         'certain_category': '/api/shop/certain_category/',
         'similar_items': '/api/shop/similar_items/',
+        'reviews': '/api/shop/products/<pk>/reviews/',
     }
 
     return Response(endpoints)
+
 
 @api_view(['GET'])
 def get_single_user(request, pk):
@@ -37,7 +38,7 @@ def get_categories(request):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def get_products(request):
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
@@ -112,13 +113,13 @@ def similar_items(request, pk):
     return Response(serializer.data)
 
 
-
 @api_view(['GET'])
 def get_user_products(request, pk):
     user = UserAccount.objects.get(id=pk)
     products = Product.objects.filter(vendor=user)
     serializer = UserProductSerializer(products, many=True)
     return Response(serializer.data)
+
 
 @api_view(['POST'])
 def post_product(request):
@@ -129,24 +130,20 @@ def post_product(request):
         img = data['img']
         price = data['price']
         stock = data['stock']
-        description= data['description']
+        description = data['description']
         category_id = data['category_id']
         features = data['features']
-        
+
         vendor = UserAccount.objects.get(id=vendor_id)
         category = Category.objects.get(id=category_id)
     except:
         return Response({'error': 'Something went wrong when posting a product. Try again'}, status=status.HTTP_404_NOT_FOUND)
-    
+
     product = Product.objects.create(vendor=vendor, name=name, img=img, price=price, stock=stock, description=description,
                                      category=category, features=features)
-    product.save()   
-    return Response({'success':f'{name} has been successfully posted'})
-    
-    
-    
+    product.save()
+    return Response({'success': f'{name} has been successfully posted'})
 
-    
 
 # {
 # "vendor_id":"",

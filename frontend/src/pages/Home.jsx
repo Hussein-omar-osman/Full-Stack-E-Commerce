@@ -14,7 +14,7 @@ const Home = () => {
 		window.scrollTo(0, 0);
 	}, []);
 	return (
-		<Container className='mt-3' fluid>
+		<Container fluid>
 			<Banner />
 			<Collection />
 			<Discount />

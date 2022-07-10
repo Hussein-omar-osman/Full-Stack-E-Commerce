@@ -5,7 +5,7 @@ import { Header } from '../components';
 
 const Layout = () => {
 	return (
-		<main className='p-3'>
+		<main>
 			<Header />
 			<Outlet />
 		</main>

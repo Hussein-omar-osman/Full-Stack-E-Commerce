@@ -18,18 +18,25 @@ def getRoutes(request):
 
         'carts': '/api/cart/all/',
         'cartitems': '/api/cart/cartitems/',
-        'cart': '/api/cart/cart/<pk>',
-        'cartitem': '/api/cart/cartitem/<pk>',
+        'cart': '/api/cart/cart/<pk>/',
+        'cartitem': '/api/cart/cartitem/<pk>/',
 
         'categories': 'api/shop/categories/',
-        'category': '/api/shop/category/<pk>',
+        'category': '/api/shop/category/<pk>/',
         'products': '/api/shop/products/',
         'product': '/api/shop/product/<pk>/',
         'User_products': '/api/shop/user/products/<pk>/',
         'Single_user': '/api/shop/user/<pk>/',
         'certain_category': '/api/shop/certain_category/<pk>/',
         'similar_items': '/api/shop/similar_items/<pk>/',
-        'post_product': '/api/shop/post/product/'
+        'post_product': '/api/shop/post/product/',
+        'certain category': '/api/shop/certain_category/',
+        'similar products': '/api/shop/similar_items/',
+        'product reviews': '/api/shop/products/<pk>/reviews/',
+
+        'alt products': '/api/shop/xproducts/',
+        'alt single product': '/api/shop/xproduct/<slug>/',
+        'alt product reviews': '/api/shop/xproduct/<slug>/reviews/',
     }
 
     return Response(routes)

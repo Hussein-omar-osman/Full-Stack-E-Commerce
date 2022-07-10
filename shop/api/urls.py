@@ -12,4 +12,11 @@ urlpatterns = [
     path('user/products/<pk>/', views.get_user_products),
     path('certain_category/<pk>/', views.certain_category),
     path('similar_items/<pk>/', views.similar_items),
+    path('product/<pk>/reviews/', views.get_reviews),
+    path('certain_category/<name>/', views.certain_category),
+    path('similar_items/<name>/', views.similar_items),
+
+    path('xproducts/', views.ProductListView.as_view()),
+    path('xproduct/<slug>/', views.ProductDetailView.as_view()),
+    path('xproduct/<slug>/reviews/', views.ReviewListView.as_view()),
 ]

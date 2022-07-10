@@ -85,16 +85,18 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # DATABASES = {'default': dj_database_url.config(
 #     default='postgres://postgres:devmiano@localhost/fs')}
 
-DATABASES={
-   'default':{
-      'ENGINE':'django.db.backends.postgresql_psycopg2',
-      'NAME':'fichua',
-      'USER':'postgres',
-      'PASSWORD':'mwas6190',
-      'HOST':'localhost',
-      'PORT':'5432',
-   }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fichua',
+        'USER': 'postgres',
+        'PASSWORD': 'mwas6190',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
 }
+DATABASES = {'default': dj_database_url.config(
+    default='postgres://postgres:devmiano@localhost/fichuas')}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
