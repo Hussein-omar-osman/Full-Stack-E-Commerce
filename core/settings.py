@@ -1,7 +1,6 @@
 import os
 import cloudinary
 import cloudinary.api
-import dj_database_url
 import cloudinary.uploader
 from datetime import timedelta
 from os.path import join, dirname, abspath
@@ -10,6 +9,7 @@ import mimetypes
 
 mimetypes.add_type("text/css", ".css", True)
 mimetypes.add_type("application/javascript", ".js", True)
+
 load_dotenv(find_dotenv())
 
 BASE_DIR = dirname(dirname(abspath(__file__)))
@@ -26,9 +26,8 @@ CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOW_ALL_ORIGINS = True
 
-DISABLE_COLLECTSTATIC = 1
-
-CORS_ORIGIN_WHITELIST = ('https://fichuastore.herokuapp.com',)
+CORS_ORIGIN_WHITELIST = ('https://fichuastore.herokuapp.com',
+                         'https://fichua.vercel.app', 'https://fichuastore.vercel.app')
 
 INSTALLED_APPS = [
     'rest_framework',
@@ -39,9 +38,6 @@ INSTALLED_APPS = [
     'djoser',
     'phonenumber_field',
     'rest_framework_simplejwt',
-    'accounts',
-    'shop',
-    'cart',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -82,21 +78,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
-# DATABASES = {'default': dj_database_url.config(
-#     default='postgres://postgres:devmiano@localhost/fs')}
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'fichua',
-        'USER': 'postgres',
-        'PASSWORD': 'mwas6190',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
-DATABASES = {'default': dj_database_url.config(
-    default='postgres://postgres:devmiano@localhost/fichuas')}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -149,6 +141,7 @@ DJOSER = {
         'user_delete': 'djoser.serializers.UserDeleteSerializer',
     }
 }
+
 
 EMAIL_PORT = 587
 
