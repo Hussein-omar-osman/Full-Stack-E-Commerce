@@ -24,3 +24,9 @@ class SimilarItems(ModelSerializer):
     class Meta:
         model = Product
         fields = '__all__'
+
+
+class ReviewSerializer(ModelSerializer):
+    class Meta:
+        model = Review
+        fields = '__all__'

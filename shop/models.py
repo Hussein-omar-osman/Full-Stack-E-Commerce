@@ -1,6 +1,7 @@
 import uuid
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 from ckeditor.fields import RichTextField
 from cloudinary.models import CloudinaryField
 from django.contrib.auth import get_user_model
@@ -45,3 +46,14 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+
+class Review(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    comment = models.TextField(max_length=255, blank=True, null=True)
+    rate = models.IntegerField(default=0)
+    created = models.DateTimeField('date created', default=timezone.now)
+
+    def __str__(self):
+        return str(self.customer.name)

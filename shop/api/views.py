@@ -1,9 +1,9 @@
 import random
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
-from rest_framework import status
-from shop.models import Product, Category
-from .serializers import ProductSerializer, CategorySerializer, CertainCategory, SimilarItems
+from rest_framework import status, generics
+from shop.models import *
+from .serializers import *
 from django.contrib.auth.mixins import LoginRequiredMixin
 
 
@@ -12,11 +12,12 @@ def get_links(request):
     endpoints = {
         'all': '/shop/',
         'categories': '/api/shop/categories/',
-        'category': '/api/shop/category/<pk>',
+        'category': '/api/shop/category/<pk>/',
         'products': '/api/shop/products/',
-        'product': '/api/shop/product/<pk>',
+        'product': '/api/shop/product/<pk>/',
         'certain_category': '/api/shop/certain_category/',
         'similar_items': '/api/shop/similar_items/',
+        'reviews': '/api/shop/products/<pk>/reviews/',
     }
 
     return Response(endpoints)
@@ -29,7 +30,7 @@ def get_categories(request):
     return Response(serializer.data)
 
 
-@api_view(['GET'])
+@api_view(['GET', 'POST'])
 def get_products(request):
     products = Product.objects.all()
     serializer = ProductSerializer(products, many=True)
@@ -97,3 +98,30 @@ def similar_items(request, name):
 
     serializer = SimilarItems(prods, many=True)
     return Response(serializer.data)
+
+
+@api_view(['GET'])
+def get_reviews(request, pk):
+    product = Product.objects.get(id=pk)
+    reviews = Review.objects.filter(product=product.id)
+
+    serializer = ReviewSerializer(reviews, many=True)
+    return Response(serializer.data)
+
+
+class ProductListView(generics.ListCreateAPIView):
+    model = Product
+    serializer_class = ProductSerializer
+    queryset = Product.objects.all()
+
+
+class ProductDetailView(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = ProductSerializer
+    queryset = Product.objects.all()
+    lookup_field = 'slug'
+
+
+class ReviewListView(generics.ListCreateAPIView):
+    model = Review
+    serializer_class = ReviewSerializer
+    queryset = Review.objects.all()
