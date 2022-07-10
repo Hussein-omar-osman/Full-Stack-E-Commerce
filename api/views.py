@@ -24,9 +24,12 @@ def getRoutes(request):
         'categories': 'api/shop/categories/',
         'category': '/api/shop/category/<pk>',
         'products': '/api/shop/products/',
-        'product': '/api/shop/product/<pk>',
-        'certain_category': '/api/shop/certain_category/',
-        'similar_items': '/api/shop/similar_items/',
+        'product': '/api/shop/product/<pk>/',
+        'User_products': '/api/shop/user/products/<pk>/',
+        'Single_user': '/api/shop/user/<pk>/',
+        'certain_category': '/api/shop/certain_category/<pk>/',
+        'similar_items': '/api/shop/similar_items/<pk>/',
+        'post_product': '/api/shop/post/product/'
     }
 
     return Response(routes)

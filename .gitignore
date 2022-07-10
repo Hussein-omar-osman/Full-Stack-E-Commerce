@@ -8,7 +8,7 @@ virtual
 node_modules/
 # Distribution / packaging
 .Python
-
+.vscode
 develop-eggs/
 dist/
 downloads/
