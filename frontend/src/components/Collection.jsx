@@ -60,7 +60,7 @@ function Collection() {
 					</div>
 
 					{selected === 'Best Sellers' && (
-						<div className='special-list mt-4 row gx-0 gy-3'>
+						<div className='special-list mt-4 row'>
 							{bestProducts.map((prod) => (
 								<SingleProduct
 									key={prod.id}
@@ -72,7 +72,7 @@ function Collection() {
 						</div>
 					)}
 					{selected === 'Featured' && (
-						<div className='special-list mt-4 row gx-0 gy-3'>
+						<div className='special-list mt-4 row'>
 							{featuredProducts.map((prod) => (
 								<SingleProduct
 									name={prod.name}
@@ -83,7 +83,7 @@ function Collection() {
 						</div>
 					)}
 					{selected === 'New Arrival' && (
-						<div className='special-list mt-4 row gx-0 gy-3'>
+						<div className='special-list mt-4 row'>
 							{newProducts.map((prod) => (
 								<SingleProduct
 									name={prod.name}
