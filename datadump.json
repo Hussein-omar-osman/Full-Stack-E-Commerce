@@ -43,8 +43,8 @@
     "model": "contenttypes.contenttype",
     "pk": 6,
     "fields": {
-        "app_label": "cart",
-        "model": "cart"
+        "app_label": "shop",
+        "model": "review"
     }
 },
 {
@@ -52,12 +52,20 @@
     "pk": 7,
     "fields": {
         "app_label": "cart",
-        "model": "cartitem"
+        "model": "cart"
     }
 },
 {
     "model": "contenttypes.contenttype",
     "pk": 8,
+    "fields": {
+        "app_label": "cart",
+        "model": "cartitem"
+    }
+},
+{
+    "model": "contenttypes.contenttype",
+    "pk": 9,
     "fields": {
         "app_label": "admin",
         "model": "logentry"
@@ -65,7 +73,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 9,
+    "pk": 10,
     "fields": {
         "app_label": "auth",
         "model": "permission"
@@ -73,7 +81,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 10,
+    "pk": 11,
     "fields": {
         "app_label": "auth",
         "model": "group"
@@ -81,7 +89,7 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 11,
+    "pk": 12,
     "fields": {
         "app_label": "contenttypes",
         "model": "contenttype"
@@ -89,18 +97,10 @@
 },
 {
     "model": "contenttypes.contenttype",
-    "pk": 12,
+    "pk": 13,
     "fields": {
         "app_label": "sessions",
         "model": "session"
-    }
-},
-{
-    "model": "sessions.session",
-    "pk": "zotmzh8gbx8v30ho4hl79ap5kzdez49k",
-    "fields": {
-        "session_data": ".eJxVjEEOwiAQRe_C2pBCYei4dN8zEJgBqRqalHZlvLtt0oVu_3vvv4UP21r81tLiJxZXocTld4uBnqkegB-h3mdJc12XKcpDkSdtcpw5vW6n-3dQQit7TTkpo1VgFR1EjcBAUQNYawFVcKgdJtK97QY2lpAxDXlHpqPcIxvx-QLXtDdi:1o9YNm:C-d6r4SSKDhZkbjEBdiIEUl7IP7nsO4vF1FtnKm59H0",
-        "expire_date": "2022-07-21T20:45:54.747Z"
     }
 },
 {
@@ -347,6 +347,54 @@
     "model": "auth.permission",
     "pk": 21,
     "fields": {
+        "name": "Can add review",
+        "content_type": [
+            "shop",
+            "review"
+        ],
+        "codename": "add_review"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 22,
+    "fields": {
+        "name": "Can change review",
+        "content_type": [
+            "shop",
+            "review"
+        ],
+        "codename": "change_review"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 23,
+    "fields": {
+        "name": "Can delete review",
+        "content_type": [
+            "shop",
+            "review"
+        ],
+        "codename": "delete_review"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 24,
+    "fields": {
+        "name": "Can view review",
+        "content_type": [
+            "shop",
+            "review"
+        ],
+        "codename": "view_review"
+    }
+},
+{
+    "model": "auth.permission",
+    "pk": 25,
+    "fields": {
         "name": "Can add cart",
         "content_type": [
             "cart",
@@ -357,7 +405,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 22,
+    "pk": 26,
     "fields": {
         "name": "Can change cart",
         "content_type": [
@@ -369,7 +417,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 23,
+    "pk": 27,
     "fields": {
         "name": "Can delete cart",
         "content_type": [
@@ -381,7 +429,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 24,
+    "pk": 28,
     "fields": {
         "name": "Can view cart",
         "content_type": [
@@ -393,7 +441,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 25,
+    "pk": 29,
     "fields": {
         "name": "Can add cart item",
         "content_type": [
@@ -405,7 +453,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 26,
+    "pk": 30,
     "fields": {
         "name": "Can change cart item",
         "content_type": [
@@ -417,7 +465,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 27,
+    "pk": 31,
     "fields": {
         "name": "Can delete cart item",
         "content_type": [
@@ -429,7 +477,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 28,
+    "pk": 32,
     "fields": {
         "name": "Can view cart item",
         "content_type": [
@@ -441,7 +489,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 29,
+    "pk": 33,
     "fields": {
         "name": "Can add log entry",
         "content_type": [
@@ -453,7 +501,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 30,
+    "pk": 34,
     "fields": {
         "name": "Can change log entry",
         "content_type": [
@@ -465,7 +513,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 31,
+    "pk": 35,
     "fields": {
         "name": "Can delete log entry",
         "content_type": [
@@ -477,7 +525,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 32,
+    "pk": 36,
     "fields": {
         "name": "Can view log entry",
         "content_type": [
@@ -489,7 +537,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 33,
+    "pk": 37,
     "fields": {
         "name": "Can add permission",
         "content_type": [
@@ -501,7 +549,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 34,
+    "pk": 38,
     "fields": {
         "name": "Can change permission",
         "content_type": [
@@ -513,7 +561,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 35,
+    "pk": 39,
     "fields": {
         "name": "Can delete permission",
         "content_type": [
@@ -525,7 +573,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 36,
+    "pk": 40,
     "fields": {
         "name": "Can view permission",
         "content_type": [
@@ -537,7 +585,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 37,
+    "pk": 41,
     "fields": {
         "name": "Can add group",
         "content_type": [
@@ -549,7 +597,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 38,
+    "pk": 42,
     "fields": {
         "name": "Can change group",
         "content_type": [
@@ -561,7 +609,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 39,
+    "pk": 43,
     "fields": {
         "name": "Can delete group",
         "content_type": [
@@ -573,7 +621,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 40,
+    "pk": 44,
     "fields": {
         "name": "Can view group",
         "content_type": [
@@ -585,7 +633,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 41,
+    "pk": 45,
     "fields": {
         "name": "Can add content type",
         "content_type": [
@@ -597,7 +645,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 42,
+    "pk": 46,
     "fields": {
         "name": "Can change content type",
         "content_type": [
@@ -609,7 +657,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 43,
+    "pk": 47,
     "fields": {
         "name": "Can delete content type",
         "content_type": [
@@ -621,7 +669,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 44,
+    "pk": 48,
     "fields": {
         "name": "Can view content type",
         "content_type": [
@@ -633,7 +681,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 45,
+    "pk": 49,
     "fields": {
         "name": "Can add session",
         "content_type": [
@@ -645,7 +693,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 46,
+    "pk": 50,
     "fields": {
         "name": "Can change session",
         "content_type": [
@@ -657,7 +705,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 47,
+    "pk": 51,
     "fields": {
         "name": "Can delete session",
         "content_type": [
@@ -669,7 +717,7 @@
 },
 {
     "model": "auth.permission",
-    "pk": 48,
+    "pk": 52,
     "fields": {
         "name": "Can view session",
         "content_type": [
@@ -683,129 +731,19 @@
     "model": "accounts.useraccount",
     "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$320000$Vw2c1TCAXsSxYxBHqBN01v$rJVH7N7oLLm9qjdlj17qrdiLctuTSUfVQ215QFecl7c=",
-        "last_login": "2022-07-07T20:45:54.745Z",
+        "password": "pbkdf2_sha256$320000$4P5K8lUlRqCwBbfW1SXTkk$+4F36u9Y8UZyVpMrFwRghevSgs4wULM5AJAvwUZRbxI=",
+        "last_login": null,
         "is_superuser": true,
         "name": "devmiano",
         "contact": "+254743842088",
         "email": "devmiano@outlook.com",
-        "joined": "2022-07-07T20:43:49.386Z",
+        "joined": "2022-07-10T00:56:07.330Z",
         "is_active": true,
         "is_staff": true,
         "is_vendor": true,
         "is_customer": true,
         "groups": [],
         "user_permissions": []
-    }
-},
-{
-    "model": "accounts.useraccount",
-    "pk": 2,
-    "fields": {
-        "password": "pbkdf2_sha256$320000$PMbBSBHmtX2bpz9GEYYkQY$EYCOGxCk8AGVXSL959VnqTrKRkWg8LSk4kfTa1MHU64=",
-        "last_login": null,
-        "is_superuser": true,
-        "name": "fichuastore",
-        "contact": "+254700100100",
-        "email": "fichuastore@gmail.com",
-        "joined": "2022-07-07T20:47:12.636Z",
-        "is_active": true,
-        "is_staff": true,
-        "is_vendor": true,
-        "is_customer": true,
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "accounts.useraccount",
-    "pk": 3,
-    "fields": {
-        "password": "pbkdf2_sha256$320000$IBBFVGuanCViCpbfxf2jHN$RVG5LY0Gj1dAzkpNR/PxK6Bj3pd0agPzZu9WZlLiiZs=",
-        "last_login": null,
-        "is_superuser": true,
-        "name": "fichua",
-        "contact": "+254700100101",
-        "email": "fichua06@gmail.com",
-        "joined": "2022-07-07T20:47:44.175Z",
-        "is_active": true,
-        "is_staff": true,
-        "is_vendor": true,
-        "is_customer": true,
-        "groups": [],
-        "user_permissions": []
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 1,
-    "fields": {
-        "action_time": "2022-07-07T20:47:12.847Z",
-        "user": [
-            "devmiano@outlook.com"
-        ],
-        "content_type": [
-            "accounts",
-            "useraccount"
-        ],
-        "object_id": "2",
-        "object_repr": "fichuastore@gmail.com",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 2,
-    "fields": {
-        "action_time": "2022-07-07T20:47:44.383Z",
-        "user": [
-            "devmiano@outlook.com"
-        ],
-        "content_type": [
-            "accounts",
-            "useraccount"
-        ],
-        "object_id": "3",
-        "object_repr": "fichua06@gmail.com",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 3,
-    "fields": {
-        "action_time": "2022-07-07T20:48:14.303Z",
-        "user": [
-            "devmiano@outlook.com"
-        ],
-        "content_type": [
-            "accounts",
-            "useraccount"
-        ],
-        "object_id": "3",
-        "object_repr": "fichua06@gmail.com",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Is staff\", \"Superuser status\"]}}]"
-    }
-},
-{
-    "model": "admin.logentry",
-    "pk": 4,
-    "fields": {
-        "action_time": "2022-07-07T20:48:40.864Z",
-        "user": [
-            "devmiano@outlook.com"
-        ],
-        "content_type": [
-            "accounts",
-            "useraccount"
-        ],
-        "object_id": "2",
-        "object_repr": "fichuastore@gmail.com",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Is staff\", \"Superuser status\"]}}]"
     }
 }
 ]

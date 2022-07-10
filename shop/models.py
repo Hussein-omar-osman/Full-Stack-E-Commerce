@@ -1,8 +1,6 @@
 import uuid
 from django.db import models
-from django.urls import reverse
 from django.utils import timezone
-from ckeditor.fields import RichTextField
 from cloudinary.models import CloudinaryField
 from django.contrib.auth import get_user_model
 
@@ -11,8 +9,9 @@ User = get_user_model()
 
 
 class Category(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4)
     name = models.CharField(max_length=50)
-    image = CloudinaryField()
+    photo = CloudinaryField()
     slug = models.SlugField(max_length=200, unique=True)
 
     class Meta:
@@ -29,18 +28,17 @@ class Product(models.Model):
     vendor = models.ForeignKey(
         User, on_delete=models.CASCADE, related_name='vendor')
     name = models.CharField(max_length=200)
-    img = CloudinaryField()
+    photo = CloudinaryField()
     price = models.DecimalField(max_digits=6, decimal_places=2)
     stock = models.IntegerField(default=0)
     details = models.TextField()
     slug = models.SlugField(max_length=200, unique=True)
-    mfg = models.DateTimeField(auto_now_add=True)
+    mfg = models.DateTimeField('date manufactured', default=timezone.now)
     category = models.ForeignKey(
         Category, on_delete=models.CASCADE, related_name='products')
-    features = RichTextField(blank=True)
 
     class Meta:
-        ordering = ('mfg',)
+        ordering = ('name',)
         verbose_name = 'product'
         verbose_name_plural = 'products'
 
