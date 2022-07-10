@@ -82,6 +82,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
+# DATABASES = {'default': dj_database_url.config(
+#     default='postgres://postgres:devmiano@localhost/fs')}
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'fichua',
+        'USER': 'postgres',
+        'PASSWORD': 'mwas6190',
+        'HOST': 'localhost',
+        'PORT': '5432',
+    }
+}
 DATABASES = {'default': dj_database_url.config(
     default='postgres://postgres:devmiano@localhost/fichuas')}
 
@@ -109,7 +122,7 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
     'ACCESS_TOKEN_LIFETIME': timedelta(days=3),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=5),
     'AUTH_TOKEN_CLASSES': (
         'rest_framework_simplejwt.tokens.AccessToken',
     )

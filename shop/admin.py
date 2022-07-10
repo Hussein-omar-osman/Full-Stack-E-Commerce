@@ -5,7 +5,6 @@ from .models import *
 class CategoryAdmin(admin.ModelAdmin):
     model = Category
     list_display = ('name', )
-    prepopulated_fields = {'slug': ('name',)}
 
 
 class ProductAdmin(admin.ModelAdmin):

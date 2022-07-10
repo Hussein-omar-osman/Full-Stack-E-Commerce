@@ -13,4 +13,8 @@ export { default as Categories } from './Categories';
 export { default as Collection } from './Collection';
 export { default as Newsletter } from './Newsletter';
 export { default as SingleProduct } from './SingleProduct';
+<<<<<<< HEAD
+export { default as DashHeadser } from './DashHeadser';
+=======
 export { default as SingleCategory } from './SingleCategory';
+>>>>>>> master

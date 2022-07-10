@@ -46,13 +46,13 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     contact = PhoneNumberField(unique=True)
     email = models.EmailField(max_length=255, unique=True)
     joined = models.DateTimeField('date joined', default=timezone.now)
-
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
-    is_vendor = models.BooleanField(default=False)
     is_customer = models.BooleanField(default=True)
-
+    is_vendor = models.BooleanField(default=False)
+    business_name = models.CharField(max_length=255, null=True)
+    location = models.CharField(max_length=255, null=True)
     objects = UserAccountManager()
 
     USERNAME_FIELD = 'email'
