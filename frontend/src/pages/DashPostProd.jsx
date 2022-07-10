@@ -59,9 +59,11 @@ function DashPostProd() {
         option
       );
       const data = await res.json();
+      console.log(data);
+      console.log(res);
       if (res.status === 200) {
         Toastify({
-          text: 'Success',
+          text: data.success,
           duration: 3000,
           gravity: 'bottom', // `top` or `bottom`
           position: 'center', // `left`, `center` or `right`

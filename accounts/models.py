@@ -52,7 +52,7 @@ class UserAccount(AbstractBaseUser, PermissionsMixin):
     is_customer = models.BooleanField(default=True)
     is_vendor = models.BooleanField(default=False)
     business_name = models.CharField(max_length=255, null=True)
-
+    location = models.CharField(max_length=255, null=True)
     objects = UserAccountManager()
 
     USERNAME_FIELD = 'email'
