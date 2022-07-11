@@ -8,7 +8,7 @@ import Button from 'react-bootstrap/Button';
 import { MdClose } from 'react-icons/md';
 import { AiOutlinePlus, AiOutlineMinus } from 'react-icons/ai';
 import CardGroup from 'react-bootstrap/CardGroup';
-import { useStore } from '../app/store';
+import { useStore } from '../app/count';
 
 const OrderCard = () => {
 	const count = useStore((state) => state.count);
