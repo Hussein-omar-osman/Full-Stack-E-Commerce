@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
-// import { v4 as uuidv4 } from 'uuid';
+import * as urlSlug from 'url-slug';
+import { v4 as uuidv4 } from 'uuid';
 
 function Create() {
 	const [photoData, setPhotoData] = useState('');
-	const [categories, setCategories] = useState([]);
+	const [category, setCategory] = useState([]);
 	const [postData, setPostData] = useState({
+		id: '',
 		vendor: '',
 		name: '',
+		slug: '',
 		photo: '',
 		price: '',
 		stock: '',
@@ -22,7 +25,7 @@ function Create() {
 		);
 		let data = await res.json();
 		console.log(data);
-		setCategories(data);
+		setCategory(data);
 	};
 
 	useState(() => {
@@ -51,10 +54,12 @@ function Create() {
 
 		if (data.status === 200) {
 			console.log('now you can post your rest of the data');
-			const { vendor, name, category, price, details, stock } = postData;
+			const { name, category, price, details, stock } = postData;
 			const content = {
+				id: uuidv4(),
 				name: name,
-				vendor: vendor,
+				vendor: 5,
+				slug: urlSlug.convert(name),
 				photo: jData.secure_url,
 				price: price,
 				stock: stock,
@@ -69,7 +74,7 @@ function Create() {
 				body: JSON.stringify(content),
 			};
 			const res = await fetch(
-				'http://localhost:8000/api/shop/post/product/',
+				'https://fichuastore.herokuapp.com/api/shop/post/product/',
 				option
 			);
 			const data = await res.json();
@@ -136,14 +141,16 @@ function Create() {
 				</div>
 				<div className='form-floating mb-3'>
 					<select
-						name='Choose a Category'
+						name='category'
+						placeholder='Select a Category'
 						id=''
+						defaultValue={(e) => e.target.value}
 						onChange={(e) =>
 							setPostData((prev) => ({ ...prev, category: e.target.value }))
 						}>
-						{categories.map((p) => (
-							<option key={p.id} value={p.id}>
-								{p.name}
+						{category.map((option) => (
+							<option key={option.id} value={option.id}>
+								{option.name}
 							</option>
 						))}
 					</select>

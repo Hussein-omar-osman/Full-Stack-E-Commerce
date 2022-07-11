@@ -1,4 +1,5 @@
 import random
+from time import ctime
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
@@ -113,11 +114,14 @@ def post_product(request):
         details = data['details']
         category = data['category']
 
+        vd = Product.objects.get(id=vendor)
+        ct = Category.objects.get(id=category)
+
     except:
         return Response({'error': 'Something went wrong when posting a product. Try again'}, status=status.HTTP_404_NOT_FOUND)
 
-    product = Product.objects.create(vendor=vendor, name=name, slug=slug, photo=photo,
-                                     price=price, stock=stock, details=details, category=category)
+    product = Product.objects.create(vendor=vd, name=name, slug=slug, photo=photo,
+                                     price=price, stock=stock, details=details, category=ct)
     product.save()
     return Response({'success': f'{name} has been successfully posted'})
 

@@ -24,6 +24,7 @@
 		"react-use": "^17.4.0",
 		"spinners-react": "^1.0.7",
 		"toastify-js": "^1.11.2",
+		"url-slug": "^3.0.4",
 		"uuid": "^8.3.2",
 		"zustand": "^4.0.0-rc.1"
 	},
