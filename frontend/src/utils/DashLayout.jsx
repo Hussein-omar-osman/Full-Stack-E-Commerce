@@ -68,7 +68,7 @@ const DashLayout = () => {
 											onClick={() => setActiveTab('Products')}
 											href='/dashboard/inventory'>
 											<span data-feather='file'></span>
-											Products
+											Inventory
 										</a>
 									</li>
 								</Link>
@@ -94,7 +94,7 @@ const DashLayout = () => {
 											onClick={() => setActiveTab('Post')}
 											href='/dashboard'>
 											<span data-feather='users'></span>
-											Post
+											Create
 										</a>
 									</li>
 								</Link>
