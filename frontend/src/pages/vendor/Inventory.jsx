@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-function DashUserProd() {
+function Inventory() {
 	const [prods, setProds] = useState([]);
 
 	const fetchProds = async () => {
@@ -44,4 +44,4 @@ function DashUserProd() {
 	);
 }
 
-export default DashUserProd;
+export default Inventory;

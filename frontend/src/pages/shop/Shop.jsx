@@ -1,22 +1,40 @@
 import React, { useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import { Footer, SingleProduct } from '../components';
-import Coat from '../assets/images/c_t-shirt_men.png';
+import { Footer, SingleProduct } from '../../components';
+import Coat from '../../assets/images/c_t-shirt_men.png';
+import Container from 'react-bootstrap/Container';
 
-function SingleCategory() {
-	const { name } = useParams();
+const Shop = () => {
 	useEffect(() => {
 		window.scrollTo(0, 0);
 	}, []);
+
 	return (
-		<>
-			<section id={name} className='py-5'>
+		<Container fluid>
+			<section className=''>
 				<div className='container'>
-					<div className='title text-center'>
-						<h2 className='position-relative d-inline-block'>{name}</h2>
-					</div>
+					<h1 className='text-primary text-center'>Shop</h1>
 
 					<div className='row g-0'>
+						<div className='d-flex flex-wrap justify-content-center mt-5 filter-button-group'>
+							<button
+								type='button'
+								className='btn m-2 text-dark active-filter-btn'>
+								All
+							</button>
+							<button type='button' className='btn m-2 text-dark'>
+								Electronics
+							</button>
+							<button type='button' className='btn m-2 text-dark'>
+								Books
+							</button>
+							<button type='button' className='btn m-2 text-dark'>
+								Fashion
+							</button>
+							<button type='button' className='btn m-2 text-dark'>
+								Sports
+							</button>
+						</div>
+
 						<div className='special-list mt-4 row gx-0 gy-3'>
 							<SingleProduct name={'Coat'} price={'$ 49.00'} prodImage={Coat} />
 							<SingleProduct name={'Coat'} price={'$ 49.00'} prodImage={Coat} />
@@ -59,8 +77,8 @@ function SingleCategory() {
 				</ul>
 			</nav>
 			<Footer />
-		</>
+		</Container>
 	);
-}
+};
 
-export default SingleCategory;
+export default Shop;

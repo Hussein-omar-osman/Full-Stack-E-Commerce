@@ -1,6 +1,6 @@
 import React from 'react';
 import Container from 'react-bootstrap/Container';
-import { OrderCard } from '../components';
+import { OrderCard } from '../../components';
 import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from 'react-router-bootstrap';
 import Stack from 'react-bootstrap/Stack';

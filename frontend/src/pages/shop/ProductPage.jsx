@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Footer, SingleProduct } from '../components';
-import Coat from '../assets/images/c_t-shirt_men.png';
+import { Footer, SingleProduct } from '../../components';
+import Coat from '../../assets/images/c_t-shirt_men.png';
 
 function ProductPage() {
 	useEffect(() => {

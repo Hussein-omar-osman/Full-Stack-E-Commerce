@@ -58,7 +58,7 @@ const DashLayout = () => {
 									</li>
 								</Link>
 								<Link
-									to='/dashboard/products'
+									to='/dashboard/inventory'
 									style={{ textDecoration: 'none' }}>
 									<li className='nav-item'>
 										<a
@@ -66,7 +66,7 @@ const DashLayout = () => {
 												activeTab === 'Products' ? 'active' : ''
 											}`}
 											onClick={() => setActiveTab('Products')}
-											href='/dashboard'>
+											href='/dashboard/inventory'>
 											<span data-feather='file'></span>
 											Products
 										</a>
@@ -79,28 +79,13 @@ const DashLayout = () => {
 												activeTab === 'Orders' ? 'active' : ''
 											}`}
 											onClick={() => setActiveTab('Orders')}
-											href='/dashboard'>
+											href='/dashboard/orders'>
 											<span data-feather='shopping-cart'></span>
 											Orders
 										</a>
 									</li>
 								</Link>
-								<Link
-									to='/dashboard/customers'
-									style={{ textDecoration: 'none' }}>
-									<li className='nav-item'>
-										<a
-											className={`nav-link ${
-												activeTab === 'Customers' ? 'active' : ''
-											}`}
-											onClick={() => setActiveTab('Customers')}
-											href='/dashboard'>
-											<span data-feather='users'></span>
-											Customers
-										</a>
-									</li>
-								</Link>
-								<Link to='/dashboard/post' style={{ textDecoration: 'none' }}>
+								<Link to='/dashboard/create' style={{ textDecoration: 'none' }}>
 									<li className='nav-item'>
 										<a
 											className={`nav-link ${
