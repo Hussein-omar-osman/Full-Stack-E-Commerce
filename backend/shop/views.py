@@ -111,11 +111,11 @@ def post_product(request):
         stock = data['stock']
         slug = data['slug']
         details = data['details']
-        category_id = data['category_id']
+        category = data['category']
         features = data['features']
 
         vendor = User.objects.get(id=vendor_id)
-        category = Category.objects.get(id=category_id)
+        category = Category.objects.get(id=category)
     except:
         return Response({'error': 'Something went wrong when posting a product. Try again'}, status=status.HTTP_404_NOT_FOUND)
 
