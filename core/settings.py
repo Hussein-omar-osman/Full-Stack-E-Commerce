@@ -1,11 +1,13 @@
 import os
+import mimetypes
 import cloudinary
+import django_heroku
 import cloudinary.api
 import cloudinary.uploader
 from datetime import timedelta
 from os.path import join, dirname, abspath
 from dotenv import load_dotenv, find_dotenv
-import mimetypes
+
 
 mimetypes.add_type("text/css", ".css", True)
 mimetypes.add_type("application/javascript", ".js", True)
@@ -215,3 +217,5 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 AUTH_USER_MODEL = 'backend.UserAccount'
+
+django_heroku.settings(locals())
