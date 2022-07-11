@@ -114,7 +114,7 @@ def post_product(request):
         details = data['details']
         category = data['category']
 
-        vd = Product.objects.get(id=vendor)
+        vd = User.objects.get(id=vendor)
         ct = Category.objects.get(id=category)
 
     except:
