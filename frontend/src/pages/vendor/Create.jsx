@@ -69,7 +69,7 @@ function Create() {
 				body: JSON.stringify(content),
 			};
 			const res = await fetch(
-				'https://fichuastore.herokuapp.com/api/shop/post/product/',
+				'http://localhost:8000/api/shop/post/product/',
 				option
 			);
 			const data = await res.json();

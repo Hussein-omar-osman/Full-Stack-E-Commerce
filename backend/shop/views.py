@@ -104,7 +104,7 @@ def get_user_products(request, pk):
 def post_product(request):
     try:
         data = request.data
-        vendor_id = data['vendor_id']
+        vendor = data['vendor']
         name = data['name']
         photo = data['photo']
         price = data['price']
@@ -112,15 +112,12 @@ def post_product(request):
         slug = data['slug']
         details = data['details']
         category = data['category']
-        features = data['features']
 
-        vendor = User.objects.get(id=vendor_id)
-        category = Category.objects.get(id=category)
     except:
         return Response({'error': 'Something went wrong when posting a product. Try again'}, status=status.HTTP_404_NOT_FOUND)
 
     product = Product.objects.create(vendor=vendor, name=name, slug=slug, photo=photo,
-                                     price=price, stock=stock, details=details, category=category, features=features)
+                                     price=price, stock=stock, details=details, category=category)
     product.save()
     return Response({'success': f'{name} has been successfully posted'})
 
