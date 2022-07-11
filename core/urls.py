@@ -7,4 +7,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/auth/', include('djoser.urls')),
     path('api/auth/', include('djoser.urls.jwt')),
+    path('', include('backend.api.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
