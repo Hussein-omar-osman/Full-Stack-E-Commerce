@@ -14,6 +14,7 @@ import {
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { LinkContainer } from 'react-router-bootstrap';
+import Badge from 'react-bootstrap/Badge';
 
 const Header = () => {
 	const [show, setShow] = useState(false);
@@ -63,7 +64,13 @@ const Header = () => {
 					<Nav.Item>
 						<LinkContainer to='/cart' className='text-center'>
 							<Nav.Link className='nav-w' eventkey='cart'>
-								<RiShoppingCart2Line className='nav-c' />
+								<div className='flt'>
+									<RiShoppingCart2Line className='nav-c' />
+									<Badge className='rounded-circle' pill bg='dark'>
+										9
+									</Badge>
+								</div>
+
 								<p className='navText'>Cart</p>
 							</Nav.Link>
 						</LinkContainer>

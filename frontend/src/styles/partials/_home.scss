@@ -40,3 +40,12 @@
 .txtn {
 	text-decoration: none !important;
 }
+
+.flt {
+	position: relative;
+
+	span {
+		position: fixed;
+		top: 0.6rem;
+	}
+}
