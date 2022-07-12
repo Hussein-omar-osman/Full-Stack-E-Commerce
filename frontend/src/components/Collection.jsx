@@ -60,35 +60,35 @@ function Collection() {
 					</div>
 
 					{selected === 'Best Sellers' && (
-						<div className='special-list mt-4 row'>
+						<div className='gw mt-4'>
 							{bestProducts.map((prod) => (
 								<SingleProduct
 									key={prod.id}
 									name={prod.name}
 									price={prod.price}
-									prodImage={prod.proImage}
+									photo={prod.proImage}
 								/>
 							))}
 						</div>
 					)}
 					{selected === 'Featured' && (
-						<div className='special-list mt-4 row'>
+						<div className='gw mt-4'>
 							{featuredProducts.map((prod) => (
 								<SingleProduct
 									name={prod.name}
 									price={prod.price}
-									prodImage={prod.proImage}
+									photo={prod.proImage}
 								/>
 							))}
 						</div>
 					)}
 					{selected === 'New Arrival' && (
-						<div className='special-list mt-4 row'>
+						<div className='gw mt-4'>
 							{newProducts.map((prod) => (
 								<SingleProduct
 									name={prod.name}
 									price={prod.price}
-									prodImage={prod.proImage}
+									photo={prod.proImage}
 								/>
 							))}
 						</div>

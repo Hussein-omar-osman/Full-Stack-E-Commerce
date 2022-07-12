@@ -40,3 +40,28 @@
 .txtn {
 	text-decoration: none !important;
 }
+
+.flt {
+	position: relative;
+
+	span {
+		position: fixed;
+		top: 0.6rem;
+	}
+}
+
+.rw {
+	gap: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}
+
+.gw {
+	gap: 2;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	flex-wrap: wrap;
+}

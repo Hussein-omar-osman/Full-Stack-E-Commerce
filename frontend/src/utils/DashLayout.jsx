@@ -38,7 +38,6 @@ const DashLayout = () => {
           </div>
         </div>
       </header>
-
       <div className='container-fluid'>
         <div className='row'>
           <nav
@@ -125,7 +124,6 @@ const DashLayout = () => {
                   </li>
                 </Link>
               </ul>
-
               <h6 className='sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted'>
                 <span>Saved reports</span>
                 <a
@@ -164,7 +162,6 @@ const DashLayout = () => {
               </ul>
             </div>
           </nav>
-
           <main className='col-md-9 ms-sm-auto col-lg-10 px-md-4'>
             <Outlet />
           </main>

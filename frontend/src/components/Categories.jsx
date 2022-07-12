@@ -1,21 +1,21 @@
-import React from 'react';
-import { useStore } from '../app/store';
+import React, { useState } from 'react';
 import SingleCategory from './SingleCategory';
-import Spinner from './Spinner';
 
 function Categories() {
-	const categories = useStore((state) => state.categories);
-	const loading = useStore((state) => state.loading);
-	const hasErrors = useStore((state) => state.hasErrors);
-	// const fetchCategories = useStore((state) => state.fetchCategories);
+	const [category, setCategory] = useState([]);
 
-	if (loading) {
-		return <Spinner />;
-	}
+	const fetchCategories = async () => {
+		let res = await fetch(
+			'https://fichuastore.herokuapp.com/api/shop/categories/'
+		);
+		let data = await res.json();
+		console.log(data);
+		setCategory(data);
+	};
 
-	if (hasErrors) {
-		return <p>cannot read Categories</p>;
-	}
+	useState(() => {
+		fetchCategories();
+	}, []);
 
 	return (
 		<div className='container mt-5'>
@@ -27,14 +27,12 @@ function Categories() {
 					Finding Best Products Now in Your Fingertips
 				</span>
 			</div>
-			{/* <button onClick={fetchCategories}>get category</button> */}
-			<div className='row mt-2 g-4'>
-				{categories.map((category) => (
+			<div className='rw py-4'>
+				{category.map((item) => (
 					<SingleCategory
-						key={category.id}
-						slug={category.slug}
-						name={category.name}
-						categoryImage={category.image}
+						name={item.name}
+						photo={item.photo}
+						slug={item.slug}
 					/>
 				))}
 			</div>
