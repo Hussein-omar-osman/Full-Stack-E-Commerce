@@ -3,19 +3,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { LinkContainer } from 'react-router-bootstrap';
 
-function SingleProduct({ id, name, price, prodImage }) {
+function SingleProduct({ id, slug, name, price, photo }) {
 	return (
-		<div
-			className='col-md-6 col-lg-4 col-xl-3 p-2 bg-light border-1 border-primary'
-			id={id}>
-			<LinkContainer to={'/product'}>
+		<div className='m-1 p-2 bg-light rounded-3' id={id}>
+			<LinkContainer to={`/product/${slug}`}>
 				<div className=''>
 					<div className='special-img collection-img position-relative'>
 						<img
-							src={prodImage}
-							className='w-100'
+							src={`https://res.cloudinary.com/fichua-store/${photo}`}
+							className='w-100 rounded-3'
 							alt=''
-							style={{ width: '350px', height: '305px', objectFit: 'cover' }}
+							style={{ width: '360px', height: '240px', objectFit: 'cover' }}
 						/>
 					</div>
 					<div className='text-start'>
