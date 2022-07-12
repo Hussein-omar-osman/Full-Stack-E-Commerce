@@ -30,49 +30,50 @@ const ShippingPage = React.lazy(() => import('./pages/shop/Shipping'));
 const SuccessPage = React.lazy(() => import('./pages/Success'));
 
 function App() {
-	return (
-		<Suspense fallback={<Spinner />}>
-			<BrowserRouter>
-				<AuthProvider>
-					<Routes>
-						<Route path='/' element={<Layout />}>
-							<Route index element={<HomePage />} />
-							<Route path='/shop' element={<Shop />} />
-							<Route path='/favorites' element={<Favorites />} />
-							<Route path='/search' element={<SearchPage />} />
+  return (
+    <Suspense fallback={<Spinner />}>
+      <BrowserRouter>
+        <AuthProvider>
+          <Routes>
+            <Route path='/' element={<Layout />}>
+              <Route index element={<HomePage />} />
+              <Route path='/shop' element={<Shop />} />
+              <Route path='/spinner' element={<Spinner />} />
+              <Route path='/favorites' element={<Favorites />} />
+              <Route path='/search' element={<SearchPage />} />
 
-							<Route path='login' element={<Login />} />
+              <Route path='login' element={<Login />} />
               <Route path='activation' element={<Activation />} />
-							<Route path='category/:name' element={<SingleCategory />} />
-							<Route path='signup' element={<Signup />} />
-							<Route path='product' element={<ProductPage />} />
+              <Route path='category/:name' element={<SingleCategory />} />
+              <Route path='signup' element={<Signup />} />
+              <Route path='product/:id' element={<ProductPage />} />
 
-							<Route path='/cart' element={<CartPage />}>
-								<Route index element={<Orders />} />
-								<Route path='billing' element={<BillingPage />} />
-								<Route path='shipping' element={<ShippingPage />} />
-								<Route path='done' element={<SuccessPage />} />
-								<Route path='*' element={<Error />} />
-							</Route>
-							<Route path='/profile' element={<Profile />} />
-						</Route>
+              <Route path='/cart' element={<CartPage />}>
+                <Route index element={<Orders />} />
+                <Route path='billing' element={<BillingPage />} />
+                <Route path='shipping' element={<ShippingPage />} />
+                <Route path='done' element={<SuccessPage />} />
+                <Route path='*' element={<Error />} />
+              </Route>
+              <Route path='/profile' element={<Profile />} />
+            </Route>
 
-						<Route path='/dashboard' element={<DashLayout />}>
-							<Route index element={<Dashboard />} />
-							<Route path='create' element={<Create />} />
-							<Route path='inventory' element={<Inventory />} />
-							<Route path='ledger' element={<Ledger />} />
-							<Route path='orders' element={<Orders />} />
-							<Route path='reports' element={<Reports />} />
-							<Route path='*' element={<Error />} />
-						</Route>
+            <Route path='/dashboard' element={<DashLayout />}>
+              <Route index element={<Dashboard />} />
+              <Route path='create' element={<Create />} />
+              <Route path='inventory' element={<Inventory />} />
+              <Route path='ledger' element={<Ledger />} />
+              <Route path='orders' element={<Orders />} />
+              <Route path='reports' element={<Reports />} />
+              <Route path='*' element={<Error />} />
+            </Route>
 
-						<Route path='*' element={<Error />} />
-					</Routes>
-				</AuthProvider>
-			</BrowserRouter>
-		</Suspense>
-	);
+            <Route path='*' element={<Error />} />
+          </Routes>
+        </AuthProvider>
+      </BrowserRouter>
+    </Suspense>
+  );
 }
 
 export default App;

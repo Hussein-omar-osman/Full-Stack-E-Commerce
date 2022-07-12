@@ -1,0 +1,29 @@
+/* special */
+.special-img span {
+  top: 20px;
+  right: 20px;
+}
+.special-list .btn {
+  padding: 8px 20px !important;
+}
+.special-img img {
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.special-img:hover img {
+  -webkit-transform: scale(1.05);
+  -ms-transform: scale(1.05);
+  transform: scale(1.05);
+}
+
+.main_image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+  height: 400px;
+  width: 100%;
+  overflow: hidden;
+}
