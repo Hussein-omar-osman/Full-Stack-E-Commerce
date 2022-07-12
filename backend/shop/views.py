@@ -7,7 +7,6 @@ from django.contrib.auth import get_user_model
 from backend.shop.models import *
 from backend.shop.serializers import *
 
-
 User = get_user_model()
 
 
@@ -151,3 +150,22 @@ class ReviewListView(generics.ListCreateAPIView):
     model = Review
     serializer_class = ReviewSerializer
     queryset = Review.objects.all()
+
+
+
+
+
+@api_view(['GET'])
+def get_result(request):
+    if request.method == 'GET':
+        name = request.GET.get("title")
+
+        results = Products.objects.filter(product_name__icontains=name).all()
+        print(results)
+
+        serializer = Productserializer(results,many=True)
+        
+        return Response(serializer.results)
+    else:
+        return Response(serializer.results)
+    
