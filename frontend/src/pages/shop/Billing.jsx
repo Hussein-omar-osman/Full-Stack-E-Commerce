@@ -106,7 +106,7 @@ const Billing = () => {
             {/* </LinkContainer> */}
           </Nav.Item>
           <Nav.Item className=''>
-            <LinkContainer className='' to='/cart/shipping'>
+            <LinkContainer className='' to='/cart/done'>
               <Button className='txt-b'>
                 Continue
                 <MdOutlineArrowForward className=' ms-2' />
