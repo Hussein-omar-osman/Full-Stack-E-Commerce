@@ -19,6 +19,7 @@ import Create from './pages/vendor/Create';
 import Inventory from './pages/vendor/Inventory';
 import Reports from './pages/vendor/Reports';
 import Ledger from './pages/vendor/Ledger';
+import Activation from './pages/Activation';
 import { AuthProvider } from './context/AuthContext';
 
 const HomePage = React.lazy(() => import('./pages/Home'));
@@ -41,6 +42,7 @@ function App() {
 							<Route path='/search' element={<SearchPage />} />
 
 							<Route path='login' element={<Login />} />
+              <Route path='activation' element={<Activation />} />
 							<Route path='category/:name' element={<SingleCategory />} />
 							<Route path='signup' element={<Signup />} />
 							<Route path='product' element={<ProductPage />} />
