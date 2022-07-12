@@ -48,9 +48,9 @@ def single_category(request, pk):
 
 
 @api_view(['GET'])
-def certain_category(request, name):
+def certain_category(request, pk):
     try:
-        category = Category.objects.get(name=name)
+        category = Category.objects.get(id=pk)
         products = Product.objects.filter(category=category)
 
     except:
@@ -152,20 +152,16 @@ class ReviewListView(generics.ListCreateAPIView):
     queryset = Review.objects.all()
 
 
-
-
-
 @api_view(['GET'])
 def get_result(request):
     if request.method == 'GET':
         name = request.GET.get("title")
 
-        results = Products.objects.filter(product_name__icontains=name).all()
+        results = Product.objects.filter(product_name__icontains=name).all()
         print(results)
 
-        serializer = Productserializer(results,many=True)
-        
+        serializer = ProductSerializer(results, many=True)
+
         return Response(serializer.results)
     else:
         return Response(serializer.results)
-    
