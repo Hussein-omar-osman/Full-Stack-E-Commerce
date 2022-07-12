@@ -16,7 +16,7 @@ const PayPal = () => {
                 description: 'Cool Looking table',
                 amount: {
                   currency_code: 'USD',
-                  value: 200.0,
+                  value: 300.0,
                 },
               },
             ],
