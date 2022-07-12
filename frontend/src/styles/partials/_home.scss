@@ -49,3 +49,12 @@
 		top: 0.6rem;
 	}
 }
+
+.rw {
+	gap: 1rem;
+	display: flex;
+	flex-wrap: wrap;
+	flex-direction: row;
+	align-items: center;
+	justify-content: center;
+}

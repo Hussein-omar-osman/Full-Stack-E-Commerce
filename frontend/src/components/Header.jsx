@@ -15,11 +15,13 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { LinkContainer } from 'react-router-bootstrap';
 import Badge from 'react-bootstrap/Badge';
+import { useSelector } from 'react-redux';
 
 const Header = () => {
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
+	const { amount } = useSelector((state) => state.cart);
 	return (
 		<>
 			<Navbar
@@ -67,7 +69,7 @@ const Header = () => {
 								<div className='flt'>
 									<RiShoppingCart2Line className='nav-c' />
 									<Badge className='rounded-circle' pill bg='dark'>
-										9
+										{amount}
 									</Badge>
 								</div>
 
