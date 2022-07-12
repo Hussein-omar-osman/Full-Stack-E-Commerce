@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
-// import '../styles/index.css';
 
 const DashLayout = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
