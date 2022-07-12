@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import SingleProduct from './SingleProduct';
-import { bestProducts, featuredProducts, newProducts } from './CollectionData';
 import Button from 'react-bootstrap/Button';
 import { LinkContainer } from 'react-router-bootstrap';
 import Nav from 'react-bootstrap/Nav';

@@ -1,20 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { Footer, SingleProduct } from '../../components';
-import Coat from '../../assets/images/c_t-shirt_men.png';
 import '../../styles/extra.css';
 import useFetch from '../../services/useFetch';
 import axios from 'axios';
-import { Link, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 function ProductPage() {
   const [mainProd, setMainProd] = useState({});
-  const { data, loading, error } = useFetch(
-    `https://fichuastore.herokuapp.com/api/shop/similar_items/${mainProd.category}/`
-  );
+
   const { id } = useParams();
 
-  console.log(mainProd);
-  console.log(data);
+  // console.log(mainProd);
+  // console.log(data);
+
   useEffect(() => {
     window.scrollTo(0, 0);
 
@@ -23,7 +21,11 @@ function ProductPage() {
       .then((response) => {
         setMainProd(response.data);
       });
-  }, []);
+  }, [id]);
+
+  const { data } = useFetch(
+    `https://fichuastore.herokuapp.com/api/shop/similar_items/${mainProd.category}/`
+  );
   return (
     <>
       <div className='container mt-5 mb-5'>
@@ -52,20 +54,20 @@ function ProductPage() {
                 </div>
                 <h3>Ksh. {mainProd.price}</h3>
 
-                <div classNameName='rating mt-3'>
-                  <span classNameName=''>
+                <div className='rating mt-3'>
+                  <span className=''>
                     <i style={{ color: '#f19c3a' }} className='fa fa-star'></i>
                   </span>
-                  <span classNameName=''>
+                  <span className=''>
                     <i style={{ color: '#f19c3a' }} className='fa fa-star'></i>
                   </span>
-                  <span classNameName=''>
+                  <span className=''>
                     <i style={{ color: '#f19c3a' }} className='fa fa-star'></i>
                   </span>
-                  <span classNameName=''>
+                  <span className=''>
                     <i style={{ color: '#f19c3a' }} className='fa fa-star'></i>
                   </span>
-                  <span classNameName=''>
+                  <span className=''>
                     <i className='fa fa-star'></i>
                   </span>
 
@@ -95,11 +97,11 @@ function ProductPage() {
             </h2>
           </div>
 
-          <div class='container special-list'>
-            <div class='row'>
+          <div className='container special-list'>
+            <div className='row'>
               {data.map((item) => {
                 return (
-                  <div class='col'>
+                  <div key={item.id} className='col'>
                     <SingleProduct
                       name={item.name}
                       price={item.price}
