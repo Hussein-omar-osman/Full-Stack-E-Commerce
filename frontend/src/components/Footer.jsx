@@ -38,7 +38,7 @@ function Footer() {
 								</a>
 							</li>
 							<li className='my-3'>
-								<a href='/' className='text-white text-decoration-none'>
+								<a href='/login' className='text-white text-decoration-none'>
 									<FontAwesomeIcon
 										className='text-secondary pe-2'
 										icon={solid('chevron-right')}
@@ -47,7 +47,7 @@ function Footer() {
 								</a>
 							</li>
 							<li className='my-3'>
-								<a href='/' className='text-white text-decoration-none'>
+								<a href='/signup' className='text-white text-decoration-none'>
 									<FontAwesomeIcon
 										className='text-secondary pe-2'
 										icon={solid('chevron-right')}
