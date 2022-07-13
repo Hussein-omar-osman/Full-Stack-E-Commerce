@@ -32,15 +32,15 @@ CORS_ORIGIN_WHITELIST = ('https://fichuastore.herokuapp.com',
                          'https://fichua.vercel.app', 'https://fichuastore.vercel.app')
 
 INSTALLED_APPS = [
-    'drf_yasg',
     'rest_framework',
     'rest_framework_simplejwt.token_blacklist',
+    'rest_framework_simplejwt',
+    'phonenumber_field',
     'corsheaders',
     'cloudinary',
+    'drf_yasg',
     'ckeditor',
     'djoser',
-    'phonenumber_field',
-    'rest_framework_simplejwt',
     'backend',
     'django.contrib.admin',
     'django.contrib.auth',
