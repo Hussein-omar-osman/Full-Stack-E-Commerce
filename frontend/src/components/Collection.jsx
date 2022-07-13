@@ -22,7 +22,7 @@ function Collection() {
 	return (
 		<section id='collection' className='py-5 px-3'>
 			<div className=''>
-				<h1 className='txt-xl text-lg-center'>New Collection</h1>
+				<h1 className='txt-xl text-lg-center'>New Collections</h1>
 
 				<div className='row g-0'>
 					<div className='d-flex flex-wrap justify-content-center mt-5 filter-button-group'>
