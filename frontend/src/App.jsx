@@ -8,6 +8,7 @@ import DashLayout from './utils/DashLayout';
 import { Spinner } from './components';
 import { AuthProvider } from './context/AuthContext';
 import { CartProvider } from './context/CartContext';
+import ProtectedCosRoutes from './app/ProtectedCosRoutes';
 
 const HomePage = React.lazy(() => import('./pages/Home'));
 const SearchPage = React.lazy(() => import('./pages/Search'));
@@ -67,7 +68,15 @@ function App() {
 									<Route path='done' element={<SuccessPage />} />
 									<Route path='*' element={<Error />} />
 								</Route>
-								<Route path='/profile' element={<ProfilePage />} />
+
+								<Route
+									path='profile'
+									element={
+										<ProtectedCosRoutes>
+											<ProfilePage />
+										</ProtectedCosRoutes>
+									}
+								/>
 							</Route>
 
 							<Route path='/dashboard' element={<DashLayout />}>
