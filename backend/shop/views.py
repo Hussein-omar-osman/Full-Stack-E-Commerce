@@ -49,9 +49,9 @@ def single_category(request, pk):
 
 
 @api_view(['GET'])
-def certain_category(request, name):
+def certain_category(request, pk):
     try:
-        category = Category.objects.get(name=name)
+        category = Category.objects.get(id=pk)
         products = Product.objects.filter(category=category)
 
     except:
