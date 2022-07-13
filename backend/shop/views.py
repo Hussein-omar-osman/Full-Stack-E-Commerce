@@ -1,10 +1,9 @@
-from ast import Return
 import random
-from time import ctime
 from rest_framework import status, generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
 from django.contrib.auth import get_user_model
+
 from backend.shop.models import *
 from backend.shop.serializers import *
 
@@ -153,9 +152,6 @@ class ReviewListView(generics.ListCreateAPIView):
     queryset = Review.objects.all()
 
 
-
-
-
 # @api_view(['GET'])
 # def get_result(request):
 #     if request.method == 'GET':
@@ -165,7 +161,7 @@ class ReviewListView(generics.ListCreateAPIView):
 #         print(results)
 
 #         serializer = Productserializer(results,many=True)
-        
+
 #         return Response(serializer.results)
 #     else:
 #         return Response(serializer.results)
@@ -177,14 +173,14 @@ def all_orders(request):
     serilizer = OrderSerilizer(orders, many=True)
     return Response(serilizer.data)
 
+
 @api_view(['Get'])
 def user_order(request, id):
-    orders = Order.objects.filter(vendor_id = id)
+    orders = Order.objects.filter(vendor_id=id)
     serilizer = OrderSerilizer(orders, many=True)
     return Response(serilizer.data)
-    
-    
-    
+
+
 @api_view(['POST'])
 def post_order(request):
     try:
@@ -199,7 +195,6 @@ def post_order(request):
         paypal_payer_name = data['paypal_payer_name']
         paypal_payment_created = data['paypal_payment_created']
         paypal_payment_updated_time = data['paypal_payment_updated_time']
-        
 
         prod = Product.objects.get(id=product)
         cust = User.objects.get(id=customer)
@@ -207,8 +202,8 @@ def post_order(request):
     except:
         return Response({'error': 'Something went wrong when posting an order. Try again'}, status=status.HTTP_404_NOT_FOUND)
 
-    order = Order.objects.create(customer=cust, product=prod, vendor_id=vendor_id, count=count, amount=amount, 
-                                 paypal_payer_email=paypal_payer_email, paypal_payer_id=paypal_payer_id, 
+    order = Order.objects.create(customer=cust, product=prod, vendor_id=vendor_id, count=count, amount=amount,
+                                 paypal_payer_email=paypal_payer_email, paypal_payer_id=paypal_payer_id,
                                  paypal_payer_name=paypal_payer_name, paypal_payment_created=paypal_payment_created,
                                  paypal_payment_updated_time=paypal_payment_updated_time)
     order.save()
@@ -257,8 +252,6 @@ def status_order(request, stage, pk):
     if stage == 'done':
         serilizer = OrderSerilizer(order_fullfilled, many=True)
         return Response(serilizer.data)
-    if stage  == 'undone':
+    if stage == 'undone':
         serilizer = OrderSerilizer(order_unfullfilled, many=True)
         return Response(serilizer.data)
-    
-    
