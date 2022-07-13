@@ -1,9 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { solid } from '@fortawesome/fontawesome-svg-core/import.macro';
 import { LinkContainer } from 'react-router-bootstrap';
 
-function SingleProduct({ id, slug, name, price, photo }) {
+function SingleProduct(props) {
+  const { id, slug, name, price, photo } = props.product;
+  const [allCart, setAllCart] = useState([]);
+  console.log(allCart);
+
+  const handleAddToCart = (product) => {
+    setAllCart((prev) => [...prev, product]);
+  };
+
   return (
     <div className='m-1 p-2 bg-light rounded-3' id={id}>
       <div className=''>
@@ -40,6 +48,14 @@ function SingleProduct({ id, slug, name, price, photo }) {
             <span className='fw-bold text-lg-start'>
               <span className='fw-light'>KES</span> {price}
             </span>
+          </div>
+          <div>
+            <button
+              onClick={() => handleAddToCart(props.product)}
+              className='btn btn-primary'
+            >
+              Add to cart
+            </button>
           </div>
         </div>
       </div>

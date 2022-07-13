@@ -36,12 +36,7 @@ function SingleCategory() {
               data.map((prod) => {
                 return (
                   <div key={prod.id} className='col-lg-3'>
-                    <SingleProduct
-                      name={prod.name}
-                      price={prod.price}
-                      photo={prod.photo}
-                      id={prod.id}
-                    />
+                    <SingleProduct product={prod} />
                   </div>
                 );
               })

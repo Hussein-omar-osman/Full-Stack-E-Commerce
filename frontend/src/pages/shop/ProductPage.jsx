@@ -102,12 +102,7 @@ function ProductPage() {
               {data.map((item) => {
                 return (
                   <div key={item.id} className='col-lg-3'>
-                    <SingleProduct
-                      name={item.name}
-                      price={item.price}
-                      photo={item.photo}
-                      id={item.id}
-                    />
+                    <SingleProduct product={item} />
                   </div>
                 );
               })}
