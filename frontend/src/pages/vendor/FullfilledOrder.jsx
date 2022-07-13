@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
-const url = 'http://127.0.0.1:8000/api/shop/order/done/1/';
+import React, { useContext, useState } from 'react';
+import AuthContext from '../../context/AuthContext';
 
 const FullfilledOrder = () => {
   const [order, setOrder] = useState([]);
-
+  const { user } = useContext(AuthContext);
+  const url = `https://fichuastore.herokuapp.com/api/shop/order/done/${user.user_id}/`;
   const fetchOrders = async () => {
     let res = await fetch(url);
     let data = await res.json();

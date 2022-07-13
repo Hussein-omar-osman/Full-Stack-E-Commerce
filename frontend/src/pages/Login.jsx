@@ -59,7 +59,7 @@ function Login() {
       setUser(jwt_decode(data.access));
       localStorage.setItem('authToken', JSON.stringify(data));
       localStorage.setItem('user', JSON.stringify(jwt_decode(data.access)));
-      navigate('/shop/');
+      navigate('/');
     } else {
       Toastify({
         text: data.detail,

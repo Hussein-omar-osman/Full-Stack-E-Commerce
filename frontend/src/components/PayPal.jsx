@@ -1,11 +1,27 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useContext, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
 
-const PayPal = () => {
+const PayPal = (props) => {
   const paypal = useRef();
   const navigate = useNavigate();
+  const { cart, setCart, setData } = props;
+
+  let all_purchase = [];
+  let total = 0;
+  for (let c of cart) {
+    let unit = {
+      description: c.name,
+      amount: {
+        currency_code: 'USD',
+        value: c.amount / 100,
+      },
+    };
+    total = total + c.amount;
+    all_purchase.push(unit);
+  }
+  let totalUSd = parseFloat(total / 100);
 
   useEffect(() => {
     window.paypal
@@ -19,7 +35,7 @@ const PayPal = () => {
 
                 amount: {
                   currency_code: 'USD',
-                  value: 500.0,
+                  value: totalUSd,
                 },
               },
             ],
@@ -38,6 +54,7 @@ const PayPal = () => {
               background: 'green',
             },
           }).showToast();
+          setData(order);
           navigate('/cart/done');
         },
         onError: (error) => {

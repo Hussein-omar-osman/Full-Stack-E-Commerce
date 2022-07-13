@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import { LinkContainer } from 'react-router-bootstrap';
@@ -10,9 +10,13 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import PayPal from '../../components/PayPal';
+import CartContext from '../../context/CartContext';
+import PaypalContext from '../../context/PaypalContext';
 
 const Billing = () => {
   const [usePayPalBtn, setUsePayPalBtn] = useState(false);
+  const { cart, setCart } = useContext(CartContext);
+  const { data, setData } = useContext(PaypalContext);
 
   return (
     <>
@@ -105,19 +109,19 @@ const Billing = () => {
             </Button>
             {/* </LinkContainer> */}
           </Nav.Item>
-          <Nav.Item className=''>
+          {/* <Nav.Item className=''>
             <LinkContainer className='' to='/cart/done'>
               <Button className='txt-b'>
                 Continue
                 <MdOutlineArrowForward className=' ms-2' />
               </Button>
             </LinkContainer>
-          </Nav.Item>
+          </Nav.Item> */}
         </Navbar>
       </Container>
       {usePayPalBtn && (
         <Container className='p-3 justify-content-center align-items-center w-75'>
-          <PayPal />
+          <PayPal cart={cart} setCart={setCart} setData={setData} />
         </Container>
       )}
     </>

@@ -1,10 +1,14 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import AuthContext from '../../context/AuthContext';
 
 function Inventory() {
   const [prods, setProds] = useState([]);
+  const { user } = useContext(AuthContext);
 
   const fetchProds = async () => {
-    let res = await fetch('http://127.0.0.1:8000/api/shop/user/products/1/');
+    let res = await fetch(
+      `https://fichuastore.herokuapp.com/api/shop/user/products/${user.user_id}/`
+    );
     let data = await res.json();
     console.log(data);
     setProds(data);
