@@ -1,12 +1,13 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
-
-const url = 'http://127.0.0.1:8000/api/shop/order/undone/1/';
+import AuthContext from '../../context/AuthContext';
 
 const PendingOrders = () => {
   const [order, setOrder] = useState([]);
   const [btnStatus, setBtnStatus] = useState(false);
+  const { user } = useContext(AuthContext);
+  const url = `https://fichuastore.herokuapp.com/api/shop/order/undone/${user.user_id}/`;
 
   const fetchOrders = async () => {
     let res = await fetch(url);
@@ -17,7 +18,7 @@ const PendingOrders = () => {
 
   const handleClick = async (e, id) => {
     let res = await fetch(
-      `http://127.0.0.1:8000/api/shop/fulfill/order/${id}/`
+      `https://fichuastore.herokuapp.com/api/shop/fulfill/order/${id}/`
     );
     let data = await res.json();
     console.log(data);
