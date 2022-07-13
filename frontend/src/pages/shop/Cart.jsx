@@ -18,7 +18,7 @@ const Cart = () => {
           <Nav.Item className='nav-wc'>
             <LinkContainer className='' to='/cart'>
               <Nav.Link className='text-dark txt-b' eventkey='cart'>
-                01. Orders
+                01. Cart
               </Nav.Link>
             </LinkContainer>
           </Nav.Item>

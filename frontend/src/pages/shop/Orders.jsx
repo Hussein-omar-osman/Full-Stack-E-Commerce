@@ -21,7 +21,7 @@ const Orders = () => {
 
   return (
     <Container className='p-5'>
-      <h1 className='px-4 text-primary'>Your Orders</h1>
+      <h1 className='px-4 text-primary'>Your Cart</h1>
       <Container className='mt-4'>
         {cart.map((item) => (
           <OrderCard key={item.id} product={item} />
