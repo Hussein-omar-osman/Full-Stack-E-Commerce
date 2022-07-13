@@ -101,7 +101,7 @@ function ProductPage() {
             <div className='row'>
               {data.map((item) => {
                 return (
-                  <div key={item.id} className='col'>
+                  <div key={item.id} className='col-lg-3'>
                     <SingleProduct
                       name={item.name}
                       price={item.price}

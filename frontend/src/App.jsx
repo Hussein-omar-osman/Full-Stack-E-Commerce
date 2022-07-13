@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Shop from './pages/shop/Shop';
 import Error from './pages/Error';
-import Orders from './pages/shop/Orders';
+import Orders from './pages/vendor/Orders';
 import Layout from './utils/Layout';
 import DashLayout from './utils/DashLayout';
 import Profile from './pages/Profile';
@@ -21,6 +21,7 @@ import Reports from './pages/vendor/Reports';
 import Ledger from './pages/vendor/Ledger';
 import Activation from './pages/Activation';
 import { AuthProvider } from './context/AuthContext';
+import FullfilledOrder from './pages/vendor/FullfilledOrder';
 
 const HomePage = React.lazy(() => import('./pages/Home'));
 const CartPage = React.lazy(() => import('./pages/shop/Cart'));
@@ -44,7 +45,7 @@ function App() {
 
               <Route path='login' element={<Login />} />
               <Route path='activation' element={<Activation />} />
-              <Route path='category/:name' element={<SingleCategory />} />
+              <Route path='category/:name/:id' element={<SingleCategory />} />
               <Route path='signup' element={<Signup />} />
               <Route path='product/:id' element={<ProductPage />} />
 
@@ -64,6 +65,7 @@ function App() {
               <Route path='inventory' element={<Inventory />} />
               <Route path='ledger' element={<Ledger />} />
               <Route path='orders' element={<Orders />} />
+              <Route path='fullfilled-orders' element={<FullfilledOrder />} />
               <Route path='reports' element={<Reports />} />
               <Route path='*' element={<Error />} />
             </Route>
