@@ -7,11 +7,11 @@ import useFetch from '../services/useFetch';
 import { Spinner } from '.';
 
 const bestSellerUrl =
-	'https://fichuastore.herokuapp.com/api/shop/similar_items/a6f1350d-02ef-4486-b363-32ac51deb5d8/';
+	'https://fichuastore.herokuapp.com/api/shop/similar_items/3a000ce5-f591-4806-b8e5-6a63f71d49a1/';
 const fearuredUrl =
-	'https://fichuastore.herokuapp.com/api/shop/similar_items/bc89c934-2dd5-4a49-9435-0201d6be2af8/';
+	'https://fichuastore.herokuapp.com/api/shop/similar_items/5306c478-baee-42d8-94c3-f7fc2fe74533/';
 const newArrivalUrl =
-	'https://fichuastore.herokuapp.com/api/shop/similar_items/d27f5d2d-2b7c-4ff2-b9ed-7f5eae0cc2a5/';
+	'https://fichuastore.herokuapp.com/api/shop/similar_items/3d31cf60-9d42-42e4-8cbb-78d25056fbb1/';
 
 function Collection() {
 	const [selected, setSelected] = useState('Best Sellers');
