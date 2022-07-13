@@ -16,7 +16,7 @@ const beautyUrl =
 const Shop = () => {
   const [categoryUrl, setCategoryUrl] = useState(allProdUrl);
   const { data: products, loading, error } = useFetch(categoryUrl);
-  const [selected, setSelected] = useState('all');
+  const [selected, setSelected] = useState('All');
   console.log(selected);
   useEffect(() => {
     window.scrollTo(0, 0);
