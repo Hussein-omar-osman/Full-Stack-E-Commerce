@@ -8,20 +8,28 @@ import Button from 'react-bootstrap/Button';
 import { MdOutlineArrowForward } from 'react-icons/md';
 import Card from 'react-bootstrap/Card';
 import { Navigate } from 'react-router-dom';
+import { useContext } from 'react';
 import CardGroup from 'react-bootstrap/CardGroup';
+import CartContext from '../../context/CartContext';
 
 const Orders = () => {
+  const { cart, setCart } = useContext(CartContext);
+  let total = 0;
+  for (let c of cart) {
+    total = total + c.amount;
+  }
+
   return (
     <Container className='p-5'>
       <h1 className='px-4 text-primary'>Your Orders</h1>
       <Container className='mt-4'>
-        <OrderCard />
-        <OrderCard />
-        <OrderCard />
+        {cart.map((item) => (
+          <OrderCard key={item.id} product={item} />
+        ))}
         <Card border='secondary' className='mt-3 pe-5 pt-2'>
           <CardGroup className='justify-content-end align-items-center p-2'>
             <Card.Title className='text-primary pe-3'>Total amount:</Card.Title>
-            <Card.Title className='text-dark'>KES 600</Card.Title>
+            <Card.Title className='text-dark'>KES {total}</Card.Title>
           </CardGroup>
         </Card>
       </Container>
