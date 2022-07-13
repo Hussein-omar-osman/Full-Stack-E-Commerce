@@ -33,7 +33,7 @@ const DashLayout = () => {
         <div className='navbar-nav'>
           <div className='nav-item text-nowrap'>
             <a className='nav-link px-3' href='/dashboard'>
-              Sign out
+              Search
             </a>
           </div>
         </div>
@@ -88,7 +88,24 @@ const DashLayout = () => {
                       href='/dashboard/orders'
                     >
                       <span data-feather='shopping-cart'></span>
-                      Orders
+                      Pending Orders
+                    </a>
+                  </li>
+                </Link>
+                <Link
+                  to='/dashboard/fullfilled-orders'
+                  style={{ textDecoration: 'none' }}
+                >
+                  <li className='nav-item'>
+                    <a
+                      className={`nav-link ${
+                        activeTab === 'Fullfilled Orders' ? 'active' : ''
+                      }`}
+                      onClick={() => setActiveTab('Fullfilled Orders')}
+                      href='/dashboard/fullfilled-orders'
+                    >
+                      <span data-feather='shopping-cart'></span>
+                      Fullfilled Orders
                     </a>
                   </li>
                 </Link>
