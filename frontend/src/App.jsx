@@ -24,7 +24,7 @@ const ProductPage = React.lazy(() => import('./pages/shop/ProductPage'));
 const BillingPage = React.lazy(() => import('./pages/shop/Billing'));
 const ShippingPage = React.lazy(() => import('./pages/shop/Shipping'));
 const SingleCategoryPage = React.lazy(() =>
-  import('./pages/shop/SingleCategory')
+	import('./pages/shop/SingleCategory')
 );
 
 const DashboardPage = React.lazy(() => import('./pages/vendor/Dashboard'));
@@ -32,74 +32,74 @@ const CreatePage = React.lazy(() => import('./pages/vendor/Create'));
 const InventoryPage = React.lazy(() => import('./pages/vendor/Inventory'));
 const LedgerPage = React.lazy(() => import('./pages/vendor/Ledger'));
 const PendingOrdersPage = React.lazy(() =>
-  import('./pages/vendor/PendingOrders')
+	import('./pages/vendor/PendingOrders')
 );
 const FullfilledOrderPage = React.lazy(() =>
-  import('./pages/vendor/FullfilledOrder')
+	import('./pages/vendor/FullfilledOrder')
 );
 const ReportsPage = React.lazy(() => import('./pages/vendor/Reports'));
 
 function App() {
-  return (
-    <Suspense fallback={<Spinner />}>
-      <BrowserRouter>
-        <AuthProvider>
-          <CartProvider>
-            <Routes>
-              <Route path='/' element={<Layout />}>
-                <Route index element={<HomePage />} />
-                <Route path='/shop' element={<ShopPage />} />
-                <Route path='/spinner' element={<Spinner />} />
-                <Route path='/search' element={<SearchPage />} />
+	return (
+		<Suspense fallback={<Spinner />}>
+			<BrowserRouter>
+				<AuthProvider>
+					<CartProvider>
+						<Routes>
+							<Route path='/' element={<Layout />}>
+								<Route index element={<HomePage />} />
+								<Route path='/shop' element={<ShopPage />} />
+								<Route path='/spinner' element={<Spinner />} />
+								<Route path='/search' element={<SearchPage />} />
 
-                <Route path='login' element={<LoginPage />} />
-                <Route path='activation' element={<ActivationPage />} />
-                <Route
-                  path='category/:name/:id'
-                  element={<SingleCategoryPage />}
-                />
-                <Route path='signup' element={<SignupPage />} />
-                <Route path='product/:id' element={<ProductPage />} />
+								<Route path='login' element={<LoginPage />} />
+								<Route path='activation' element={<ActivationPage />} />
+								<Route
+									path='category/:name/:id'
+									element={<SingleCategoryPage />}
+								/>
+								<Route path='signup' element={<SignupPage />} />
+								<Route path='product/:id' element={<ProductPage />} />
 
-                <Route path='/cart' element={<CartPage />}>
-                  <Route index element={<Orders />} />
-                  <Route path='billing' element={<BillingPage />} />
-                  <Route path='shipping' element={<ShippingPage />} />
-                  <Route path='done' element={<SuccessPage />} />
-                  <Route path='*' element={<Error />} />
-                </Route>
-                {/* <Route path='/profile' element={<Profile />} /> */}
-                <Route
-                  path='profile'
-                  element={
-                    <ProtectedCosRoutes>
-                      <Profile />
-                    </ProtectedCosRoutes>
-                  }
-                />
-              </Route>
+								<Route path='/cart' element={<CartPage />}>
+									<Route index element={<Orders />} />
+									<Route path='billing' element={<BillingPage />} />
+									<Route path='shipping' element={<ShippingPage />} />
+									<Route path='done' element={<SuccessPage />} />
+									<Route path='*' element={<Error />} />
+								</Route>
 
-              <Route path='/dashboard' element={<DashLayout />}>
-                <Route index element={<DashboardPage />} />
-                <Route path='create' element={<CreatePage />} />
-                <Route path='inventory' element={<InventoryPage />} />
-                <Route path='ledger' element={<LedgerPage />} />
-                <Route path='orders' element={<PendingOrdersPage />} />
-                <Route
-                  path='fullfilled-orders'
-                  element={<FullfilledOrderPage />}
-                />
-                <Route path='reports' element={<ReportsPage />} />
-                <Route path='*' element={<Error />} />
-              </Route>
+								<Route
+									path='profile'
+									element={
+										<ProtectedCosRoutes>
+											<ProfilePage />
+										</ProtectedCosRoutes>
+									}
+								/>
+							</Route>
 
-              <Route path='*' element={<Error />} />
-            </Routes>
-          </CartProvider>
-        </AuthProvider>
-      </BrowserRouter>
-    </Suspense>
-  );
+							<Route path='/dashboard' element={<DashLayout />}>
+								<Route index element={<DashboardPage />} />
+								<Route path='create' element={<CreatePage />} />
+								<Route path='inventory' element={<InventoryPage />} />
+								<Route path='ledger' element={<LedgerPage />} />
+								<Route path='orders' element={<PendingOrdersPage />} />
+								<Route
+									path='fullfilled-orders'
+									element={<FullfilledOrderPage />}
+								/>
+								<Route path='reports' element={<ReportsPage />} />
+								<Route path='*' element={<Error />} />
+							</Route>
+
+							<Route path='*' element={<Error />} />
+						</Routes>
+					</CartProvider>
+				</AuthProvider>
+			</BrowserRouter>
+		</Suspense>
+	);
 }
 
 export default App;
