@@ -24,6 +24,7 @@ import { AuthProvider } from './context/AuthContext';
 import FullfilledOrder from './pages/vendor/FullfilledOrder';
 import PendingOrders from './pages/vendor/PendingOrders';
 import { CartProvider } from './context/CartContext';
+import ProtectedCosRoutes from './app/ProtectedCosRoutes';
 
 const HomePage = React.lazy(() => import('./pages/Home'));
 const CartPage = React.lazy(() => import('./pages/shop/Cart'));
@@ -59,7 +60,15 @@ function App() {
                   <Route path='done' element={<SuccessPage />} />
                   <Route path='*' element={<Error />} />
                 </Route>
-                <Route path='/profile' element={<Profile />} />
+                {/* <Route path='/profile' element={<Profile />} /> */}
+                <Route
+                  path='profile'
+                  element={
+                    <ProtectedCosRoutes>
+                      <Profile />
+                    </ProtectedCosRoutes>
+                  }
+                />
               </Route>
 
               <Route path='/dashboard' element={<DashLayout />}>
