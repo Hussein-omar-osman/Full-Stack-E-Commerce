@@ -101,14 +101,7 @@ const Shop = () => {
             ) : (
               <div className='gw'>
                 {products.map((item) => (
-                  <SingleProduct
-                    key={item.id}
-                    name={item.name}
-                    photo={item.photo}
-                    price={item.price}
-                    slug={item.slug}
-                    id={item.id}
-                  />
+                  <SingleProduct key={item.id} product={item} />
                 ))}
               </div>
             )}

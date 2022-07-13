@@ -11,6 +11,12 @@ urlpatterns = [
     path('certain_category/<pk>/', certain_category),
     path('similar_items/<pk>/', similar_items),
     path('product/<pk>/reviews/', get_reviews),
+    path('orders/', all_orders),
+    path('user_orders/<id>/', user_order),
+    path('post/order/', post_order),
+    path('fulfill/order/<pk>/', fullfilled_an_order),
+    path('order/<stage>/<pk>/', status_order),
+    
 
     path('xproducts/', ProductListView.as_view()),
     path('xproduct/<slug>/', ProductDetailView.as_view()),

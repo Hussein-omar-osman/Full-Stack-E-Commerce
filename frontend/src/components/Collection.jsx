@@ -86,13 +86,7 @@ function Collection() {
           ) : (
             <div className='gw mt-4'>
               {data.map((prod) => (
-                <SingleProduct
-                  key={prod.id}
-                  name={prod.name}
-                  price={prod.price}
-                  photo={prod.photo}
-                  id={prod.id}
-                />
+                <SingleProduct key={prod.id} product={prod} />
               ))}
             </div>
           )}
