@@ -24,6 +24,7 @@ function Collection() {
 			<div className=''>
 				<h1 className='txt-xl text-lg-center'>New Collection</h1>
 
+<<<<<<< HEAD
 				<div className='row g-0'>
 					<div className='d-flex flex-wrap justify-content-center mt-5 filter-button-group'>
 						<Nav fill variant='pills'>
@@ -97,6 +98,78 @@ function Collection() {
 			</div>
 		</section>
 	);
+=======
+        <div className='row g-0'>
+          <div className='d-flex flex-wrap justify-content-center mt-5 filter-button-group'>
+            <Nav fill variant='pills'>
+              <Nav.Item>
+                <Button
+                  type='button'
+                  variant='primary'
+                  className={`m-2 cbtn ${
+                    selected === 'Best Sellers' ? 'active-filter-btn' : ''
+                  }`}
+                  onClick={() => {
+                    setSelected('Best Sellers');
+                    setCollectionUrl(bestSellerUrl);
+                  }}
+                >
+                  Best Sellers
+                </Button>
+              </Nav.Item>
+              <Nav.Item>
+                <Button
+                  variant='primary'
+                  type='button'
+                  className={`m-2 cbtn ${
+                    selected === 'Featured' ? 'active-filter-btn' : ''
+                  }`}
+                  onClick={() => {
+                    setSelected('Featured');
+                    setCollectionUrl(fearuredUrl);
+                  }}
+                >
+                  Featured
+                </Button>
+              </Nav.Item>
+              <Nav.Item>
+                <Button
+                  variant='primary'
+                  type='button'
+                  className={`m-2 cbtn ${
+                    selected === 'New Arrival' ? 'active-filter-btn' : ''
+                  }`}
+                  onClick={() => {
+                    setSelected('New Arrival');
+                    setCollectionUrl(newArrivalUrl);
+                  }}
+                >
+                  New Arrivals
+                </Button>
+              </Nav.Item>
+              <Nav.Item>
+                <LinkContainer to={'/shop'}>
+                  <Button variant='primary' type='button' className='m-2 cbtn'>
+                    All
+                  </Button>
+                </LinkContainer>
+              </Nav.Item>
+            </Nav>
+          </div>
+          {loading ? (
+            <Spinner />
+          ) : (
+            <div className='gw mt-4'>
+              {data.map((prod) => (
+                <SingleProduct key={prod.id} product={prod} />
+              ))}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+  );
+>>>>>>> 3bde419ebc56a882654610b8032f3c3a3eebda17
 }
 
 export default Collection;

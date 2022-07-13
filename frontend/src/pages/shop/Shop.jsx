@@ -16,7 +16,8 @@ const beautyUrl =
 const Shop = () => {
   const [categoryUrl, setCategoryUrl] = useState(allProdUrl);
   const { data: products, loading, error } = useFetch(categoryUrl);
-
+  const [selected, setSelected] = useState('All');
+  console.log(selected);
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -35,36 +36,61 @@ const Shop = () => {
             <div className='d-flex flex-wrap justify-content-center mt-3 mb-2 filter-button-group'>
               <button
                 type='button'
-                className='btn m-2 text-white active-filter-btn'
-                onClick={(e) => setCategoryUrl(allProdUrl)}
+                className={`btn m-2  ${
+                  selected === 'All' && 'active-filter-btn'
+                }`}
+                onClick={(e) => {
+                  setCategoryUrl(allProdUrl);
+                  setSelected('All');
+                }}
               >
                 All
               </button>
               <button
                 type='button'
-                className='btn m-2 text-dark'
-                onClick={(e) => setCategoryUrl(elecrtonicsUrl)}
+                className={`btn m-2  ${
+                  selected === 'Electronics' && 'active-filter-btn'
+                }`}
+                onClick={(e) => {
+                  setCategoryUrl(elecrtonicsUrl);
+                  setSelected('Electronics');
+                }}
               >
                 Electronics
               </button>
               <button
                 type='button'
-                className='btn m-2 text-dark'
-                onClick={(e) => setCategoryUrl(beautyUrl)}
+                className={`btn m-2  ${
+                  selected === 'Beauty' && 'active-filter-btn'
+                }`}
+                onClick={(e) => {
+                  setCategoryUrl(beautyUrl);
+                  setSelected('Beauty');
+                }}
               >
                 Beauty
               </button>
               <button
                 type='button'
-                className='btn m-2 text-dark'
-                onClick={(e) => setCategoryUrl(outdoorsUrl)}
+                className={`btn m-2 ${
+                  selected === 'Outdoors' && 'active-filter-btn'
+                }`}
+                onClick={(e) => {
+                  setCategoryUrl(outdoorsUrl);
+                  setSelected('Outdoors');
+                }}
               >
                 Outdoors
               </button>
               <button
                 type='button'
-                className='btn m-2 text-dark'
-                onClick={(e) => setCategoryUrl(fashionUrl)}
+                className={`btn m-2  ${
+                  selected === 'Fashion' && 'active-filter-btn'
+                }`}
+                onClick={(e) => {
+                  setCategoryUrl(fashionUrl);
+                  setSelected('Fashion');
+                }}
               >
                 Fashion
               </button>
@@ -75,14 +101,7 @@ const Shop = () => {
             ) : (
               <div className='gw'>
                 {products.map((item) => (
-                  <SingleProduct
-                    key={item.id}
-                    name={item.name}
-                    photo={item.photo}
-                    price={item.price}
-                    slug={item.slug}
-                    id={item.id}
-                  />
+                  <SingleProduct key={item.id} product={item} />
                 ))}
               </div>
             )}

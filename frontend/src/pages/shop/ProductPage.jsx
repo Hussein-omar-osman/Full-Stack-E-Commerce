@@ -101,13 +101,8 @@ function ProductPage() {
             <div className='row'>
               {data.map((item) => {
                 return (
-                  <div key={item.id} className='col'>
-                    <SingleProduct
-                      name={item.name}
-                      price={item.price}
-                      photo={item.photo}
-                      id={item.id}
-                    />
+                  <div key={item.id} className='col-lg-3'>
+                    <SingleProduct product={item} />
                   </div>
                 );
               })}

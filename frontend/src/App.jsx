@@ -21,6 +21,8 @@ import Reports from './pages/vendor/Reports';
 import Ledger from './pages/vendor/Ledger';
 import Activation from './pages/Activation';
 import { AuthProvider } from './context/AuthContext';
+import FullfilledOrder from './pages/vendor/FullfilledOrder';
+import PendingOrders from './pages/vendor/PendingOrders';
 
 const HomePage = React.lazy(() => import('./pages/Home'));
 const CartPage = React.lazy(() => import('./pages/shop/Cart'));
@@ -44,7 +46,7 @@ function App() {
 
               <Route path='login' element={<Login />} />
               <Route path='activation' element={<Activation />} />
-              <Route path='category/:name' element={<SingleCategory />} />
+              <Route path='category/:name/:id' element={<SingleCategory />} />
               <Route path='signup' element={<Signup />} />
               <Route path='product/:id' element={<ProductPage />} />
 
@@ -63,7 +65,8 @@ function App() {
               <Route path='create' element={<Create />} />
               <Route path='inventory' element={<Inventory />} />
               <Route path='ledger' element={<Ledger />} />
-              <Route path='orders' element={<Orders />} />
+              <Route path='orders' element={<PendingOrders />} />
+              <Route path='fullfilled-orders' element={<FullfilledOrder />} />
               <Route path='reports' element={<Reports />} />
               <Route path='*' element={<Error />} />
             </Route>

@@ -1,3 +1,4 @@
+from ast import Return
 import random
 from time import ctime
 from rest_framework import status, generics
@@ -152,16 +153,112 @@ class ReviewListView(generics.ListCreateAPIView):
     queryset = Review.objects.all()
 
 
+
+
+
+# @api_view(['GET'])
+# def get_result(request):
+#     if request.method == 'GET':
+#         name = request.GET.get("title")
+
+#         results = Products.objects.filter(product_name__icontains=name).all()
+#         print(results)
+
+#         serializer = Productserializer(results,many=True)
+        
+#         return Response(serializer.results)
+#     else:
+#         return Response(serializer.results)
+
+
+@api_view(['Get'])
+def all_orders(request):
+    orders = Order.objects.all()
+    serilizer = OrderSerilizer(orders, many=True)
+    return Response(serilizer.data)
+
+@api_view(['Get'])
+def user_order(request, id):
+    orders = Order.objects.filter(vendor_id = id)
+    serilizer = OrderSerilizer(orders, many=True)
+    return Response(serilizer.data)
+    
+    
+    
+@api_view(['POST'])
+def post_order(request):
+    try:
+        data = request.data
+        customer = data['customer']
+        product = data['product']
+        vendor_id = data['vendor_id']
+        count = data['count']
+        amount = data['amount']
+        paypal_payer_email = data['paypal_payer_email']
+        paypal_payer_id = data['paypal_payer_id']
+        paypal_payer_name = data['paypal_payer_name']
+        paypal_payment_created = data['paypal_payment_created']
+        paypal_payment_updated_time = data['paypal_payment_updated_time']
+        
+
+        prod = Product.objects.get(id=product)
+        cust = User.objects.get(id=customer)
+
+    except:
+        return Response({'error': 'Something went wrong when posting an order. Try again'}, status=status.HTTP_404_NOT_FOUND)
+
+    order = Order.objects.create(customer=cust, product=prod, vendor_id=vendor_id, count=count, amount=amount, 
+                                 paypal_payer_email=paypal_payer_email, paypal_payer_id=paypal_payer_id, 
+                                 paypal_payer_name=paypal_payer_name, paypal_payment_created=paypal_payment_created,
+                                 paypal_payment_updated_time=paypal_payment_updated_time)
+    order.save()
+    print(data)
+    return Response({'success': 'the order has been successfully made'})
+
+
+# Order Content required
+# {
+# "customer": "2",
+# "product": "70b9a0ea-bf09-445c-838a-38a69018776d",
+# "vendor_id": "1",
+# "count": "2",
+# "amount": "60",
+# "paypal_payer_email": "hussein@gmail",
+# "paypal_payer_id": "noinvsjknjkvds",
+# "paypal_payer_name": "hussein",
+# "paypal_payment_created": "2022-07-13T12:07:03.522490+03:00",
+# "paypal_payment_updated_time": "2022-07-13T12:07:03.522490+03:00"
+# }
+
 @api_view(['GET'])
-def get_result(request):
-    if request.method == 'GET':
-        name = request.GET.get("title")
+def fullfilled_an_order(request, pk):
+    try:
+        order = Order.objects.get(id=pk)
+        order.is_fullfilled = True
+        order.save()
+    except:
+        return Response({'error': 'Something went wrong when fulfilling the order. Try again'}, status=status.HTTP_404_NOT_FOUND)
+    return Response({'success': f'{order.id} has been successfully fulfilled'})
 
-        results = Product.objects.filter(product_name__icontains=name).all()
-        print(results)
 
-        serializer = ProductSerializer(results, many=True)
-
-        return Response(serializer.results)
-    else:
-        return Response(serializer.results)
+@api_view(['GET'])
+def status_order(request, stage, pk):
+    try:
+        v_o = Order.objects.filter(vendor_id=pk)
+        order_fullfilled = []
+        order_unfullfilled = []
+        for n in v_o:
+            if n.is_fullfilled == True:
+                order_fullfilled.append(n)
+            else:
+                order_unfullfilled.append(n)
+    except:
+        return Response({'error': 'Please provide the correct vendor id and the status stage. Try again'}, status=status.HTTP_404_NOT_FOUND)
+    if stage == 'done':
+        serilizer = OrderSerilizer(order_fullfilled, many=True)
+        return Response(serilizer.data)
+    if stage  == 'undone':
+        serilizer = OrderSerilizer(order_unfullfilled, many=True)
+        return Response(serilizer.data)
+    
+    

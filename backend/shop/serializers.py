@@ -46,3 +46,9 @@ class ReviewSerializer(ModelSerializer):
     class Meta:
         model = Review
         fields = '__all__'
+        
+class OrderSerilizer(ModelSerializer):
+    class Meta:
+        model = Order
+        fields = '__all__'
+
