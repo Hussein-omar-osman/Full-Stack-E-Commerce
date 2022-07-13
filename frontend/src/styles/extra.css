@@ -28,6 +28,11 @@
   overflow: hidden;
 }
 
+.loginContainer {
+  max-width: 700px !important;
+  margin: 50px;
+}
+
 /*
  * Sidebar
  */

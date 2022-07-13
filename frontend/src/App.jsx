@@ -23,6 +23,7 @@ import Activation from './pages/Activation';
 import { AuthProvider } from './context/AuthContext';
 import FullfilledOrder from './pages/vendor/FullfilledOrder';
 import PendingOrders from './pages/vendor/PendingOrders';
+import { CartProvider } from './context/CartContext';
 
 const HomePage = React.lazy(() => import('./pages/Home'));
 const CartPage = React.lazy(() => import('./pages/shop/Cart'));
@@ -36,43 +37,45 @@ function App() {
     <Suspense fallback={<Spinner />}>
       <BrowserRouter>
         <AuthProvider>
-          <Routes>
-            <Route path='/' element={<Layout />}>
-              <Route index element={<HomePage />} />
-              <Route path='/shop' element={<Shop />} />
-              <Route path='/spinner' element={<Spinner />} />
-              <Route path='/favorites' element={<Favorites />} />
-              <Route path='/search' element={<SearchPage />} />
+          <CartProvider>
+            <Routes>
+              <Route path='/' element={<Layout />}>
+                <Route index element={<HomePage />} />
+                <Route path='/shop' element={<Shop />} />
+                <Route path='/spinner' element={<Spinner />} />
+                <Route path='/favorites' element={<Favorites />} />
+                <Route path='/search' element={<SearchPage />} />
 
-              <Route path='login' element={<Login />} />
-              <Route path='activation' element={<Activation />} />
-              <Route path='category/:name/:id' element={<SingleCategory />} />
-              <Route path='signup' element={<Signup />} />
-              <Route path='product/:id' element={<ProductPage />} />
+                <Route path='login' element={<Login />} />
+                <Route path='activation' element={<Activation />} />
+                <Route path='category/:name/:id' element={<SingleCategory />} />
+                <Route path='signup' element={<Signup />} />
+                <Route path='product/:id' element={<ProductPage />} />
 
-              <Route path='/cart' element={<CartPage />}>
-                <Route index element={<Orders />} />
-                <Route path='billing' element={<BillingPage />} />
-                <Route path='shipping' element={<ShippingPage />} />
-                <Route path='done' element={<SuccessPage />} />
+                <Route path='/cart' element={<CartPage />}>
+                  <Route index element={<Orders />} />
+                  <Route path='billing' element={<BillingPage />} />
+                  <Route path='shipping' element={<ShippingPage />} />
+                  <Route path='done' element={<SuccessPage />} />
+                  <Route path='*' element={<Error />} />
+                </Route>
+                <Route path='/profile' element={<Profile />} />
+              </Route>
+
+              <Route path='/dashboard' element={<DashLayout />}>
+                <Route index element={<Dashboard />} />
+                <Route path='create' element={<Create />} />
+                <Route path='inventory' element={<Inventory />} />
+                <Route path='ledger' element={<Ledger />} />
+                <Route path='orders' element={<PendingOrders />} />
+                <Route path='fullfilled-orders' element={<FullfilledOrder />} />
+                <Route path='reports' element={<Reports />} />
                 <Route path='*' element={<Error />} />
               </Route>
-              <Route path='/profile' element={<Profile />} />
-            </Route>
 
-            <Route path='/dashboard' element={<DashLayout />}>
-              <Route index element={<Dashboard />} />
-              <Route path='create' element={<Create />} />
-              <Route path='inventory' element={<Inventory />} />
-              <Route path='ledger' element={<Ledger />} />
-              <Route path='orders' element={<PendingOrders />} />
-              <Route path='fullfilled-orders' element={<FullfilledOrder />} />
-              <Route path='reports' element={<Reports />} />
               <Route path='*' element={<Error />} />
-            </Route>
-
-            <Route path='*' element={<Error />} />
-          </Routes>
+            </Routes>
+          </CartProvider>
         </AuthProvider>
       </BrowserRouter>
     </Suspense>
