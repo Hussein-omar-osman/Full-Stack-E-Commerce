@@ -152,19 +152,15 @@ class ReviewListView(generics.ListCreateAPIView):
     queryset = Review.objects.all()
 
 
-# @api_view(['GET'])
-# def get_result(request):
-#     if request.method == 'GET':
-#         name = request.GET.get("title")
-
-#         results = Products.objects.filter(product_name__icontains=name).all()
-#         print(results)
-
-#         serializer = Productserializer(results,many=True)
-
-#         return Response(serializer.results)
-#     else:
-#         return Response(serializer.results)
+@api_view(['GET'])
+def get_result(request, name):
+    if request.method == 'GET':
+        results = Product.objects.filter(name__icontains=name).all()
+        print(results)
+        serializer = ProductSerializer(results, many=True)
+        return Response(serializer.data)
+    else:
+        return Response({'Error': 'This only accepts a get request'})
 
 
 @api_view(['Get'])

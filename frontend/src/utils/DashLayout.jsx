@@ -1,9 +1,11 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import '../styles/extra.css';
+import AuthContext from '../context/AuthContext';
 
 const DashLayout = () => {
   const [activeTab, setActiveTab] = useState('dashboard');
+  const { logout } = useContext(AuthContext);
   return (
     <>
       <header className='navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow'>
@@ -170,8 +172,8 @@ const DashLayout = () => {
                     Social engagement
                   </a>
                 </li>
-                <li className='nav-item'>
-                  <a className='nav-link' href='/dashboard'>
+                <li className='nav-item' onClick={logout}>
+                  <a className='nav-link' href=''>
                     <span data-feather='file-text'></span>
                     Sign Out
                   </a>

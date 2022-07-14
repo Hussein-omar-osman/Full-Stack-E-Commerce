@@ -16,7 +16,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 function Login() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const { setAuthToken, setUser } = useContext(AuthContext);
+  const { setAuthToken, setUser, setFullUserInfo } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -36,11 +36,6 @@ function Login() {
     );
     let data = await res.json();
 
-    console.log(email);
-    console.log(password);
-    console.log(res);
-    console.log(data);
-
     if (res.status === 200) {
       Toastify({
         text: 'Login successfull',
@@ -56,10 +51,18 @@ function Login() {
         onClick: function () {}, // Callback after click
       }).showToast();
       setAuthToken(data);
-      setUser(jwt_decode(data.access));
+      let user_decoded = jwt_decode(data.access);
+      setUser(user_decoded);
       localStorage.setItem('authToken', JSON.stringify(data));
       localStorage.setItem('user', JSON.stringify(jwt_decode(data.access)));
       navigate('/');
+      let user_full_info = await fetch(
+        `https://fichuastore.herokuapp.com/api/user/${user_decoded.user_id}/`
+      );
+      let full_user_data = await user_full_info.json();
+      setFullUserInfo(full_user_data);
+      localStorage.setItem('full_user_data', JSON.stringify(full_user_data));
+      console.log('Now we have the full user data');
     } else {
       Toastify({
         text: data.detail,

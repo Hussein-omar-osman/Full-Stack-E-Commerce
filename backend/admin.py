@@ -30,6 +30,16 @@ class UserAccountAdmin(UserAdmin):
             },
         ),
         (
+            'Location info',
+            {
+                'fields': (
+                    'city',
+                    'address',
+                    'location',
+                )
+            },
+        ),
+        (
             'Timeline',
             {
                 'fields': (
