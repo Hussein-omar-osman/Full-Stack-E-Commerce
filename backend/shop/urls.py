@@ -16,6 +16,7 @@ urlpatterns = [
     path('post/order/', post_order),
     path('fulfill/order/<pk>/', fullfilled_an_order),
     path('order/<stage>/<pk>/', status_order),
+    path('search/<name>/', get_result),
     
 
     path('xproducts/', ProductListView.as_view()),

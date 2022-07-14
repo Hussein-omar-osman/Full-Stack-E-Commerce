@@ -28,7 +28,7 @@ def getRoutes(request):
         'Fullfill Order': '/api/shop/fulfill/order/<pk>/',
         'Order stage': '/api/shop/order/<stage>/<pk>/',
         'User_products': '/api/shop/user/products/<pk>/',
-        'Single_user': '/api/shop/user/<pk>/',
+        
         'certain_category': '/api/shop/certain_category/<pk>/',
         'similar_items': '/api/shop/similar_items/<pk>/',
         'post_product': '/api/shop/post/product/',
@@ -39,6 +39,9 @@ def getRoutes(request):
         'alt products': '/api/shop/xproducts/',
         'alt single product': '/api/shop/xproduct/<slug>/',
         'alt product reviews': '/api/shop/xproduct/<slug>/reviews/',
+        'Single_User':'/api/user/<pk>',
+        'Become_Vendor':'/api/user/become-vendor/',
+        'Search_Products':'/api/shop/search/<name>/'
     }
 
     return Response(routes)
