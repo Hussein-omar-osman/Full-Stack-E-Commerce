@@ -81,7 +81,7 @@ function Collection() {
 					{loading ? (
 						<Spinner />
 					) : (
-						<div className='gw mt-4'>
+						<div className='crdrw'>
 							{data.map((prod) => (
 								<SingleProduct key={prod.id} product={prod} />
 							))}

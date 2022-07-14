@@ -38,6 +38,17 @@ function Footer() {
 								</a>
 							</li>
 							<li className='my-3'>
+								<a
+									href='/dashboard'
+									className='text-white text-decoration-none'>
+									<FontAwesomeIcon
+										className='text-secondary pe-2'
+										icon={solid('chevron-right')}
+									/>
+									<span className='txt-sm'>Vendors</span>
+								</a>
+							</li>
+							<li className='my-3'>
 								<a href='/login' className='text-white text-decoration-none'>
 									<FontAwesomeIcon
 										className='text-secondary pe-2'

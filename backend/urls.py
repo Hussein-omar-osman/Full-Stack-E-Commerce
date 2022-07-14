@@ -3,4 +3,5 @@ from backend.views import *
 
 urlpatterns = [
     path('user/<pk>/', get_single_user),
+    path('profile/<pk>/', ProfileView.as_view()),
 ]
