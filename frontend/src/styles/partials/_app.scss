@@ -144,7 +144,7 @@ p {
 }
 
 .crdrw {
-	@include grid-three;
+	@include grid-four;
 
 	@include for-tab {
 		@include grid-two;
