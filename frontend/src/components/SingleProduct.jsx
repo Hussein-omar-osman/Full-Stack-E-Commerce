@@ -6,6 +6,7 @@ import CartContext from '../context/CartContext';
 import Toastify from 'toastify-js';
 import 'toastify-js/src/toastify.css';
 import { AiOutlineShopping } from 'react-icons/ai';
+import Button from 'react-bootstrap/Button';
 function SingleProduct(props) {
 	const { id, slug, name, price, photo } = props.product;
 	const { cart, setCart } = useContext(CartContext);
@@ -43,7 +44,9 @@ function SingleProduct(props) {
 					</div>
 				</LinkContainer>
 				<div className='text-start'>
-					<p className='fw-bold text-capitalize my-1 txt-xl'>{name}</p>
+					<p className='fw-bold text-capitalize my-1 txt-xl'>
+						{name.substring(0, 30)} {name.length >= 29 && '...'}
+					</p>
 					<div className='rating'>
 						<span className='text-secondary'>
 							<FontAwesomeIcon icon={solid('star')} />
@@ -68,11 +71,12 @@ function SingleProduct(props) {
 							</span>
 						</div>
 						<div className='ctbx'>
-							<button
+							<Button
+								variant='primary'
 								onClick={() => handleAddToCart(props.product)}
-								className='btn btn-primary text-white'>
-								<AiOutlineShopping />
-							</button>
+								className='text-white'>
+								<AiOutlineShopping className='crdicon' />
+							</Button>
 						</div>
 					</div>
 				</div>

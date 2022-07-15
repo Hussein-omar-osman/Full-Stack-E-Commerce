@@ -116,6 +116,7 @@ export const deals = [
 	{
 		id: 15,
 		title: 'Deals on  Groceries',
+		slug: 'category/grocories/037453bb-a595-4111-81c7-ff03c92cbab5',
 		caption: 'Up to 60% Off',
 		photo:
 			'https://res.cloudinary.com/fichua-store/image/upload/v1657338963/berries-two_icsnhf.jpg',
@@ -123,6 +124,7 @@ export const deals = [
 	{
 		id: 16,
 		title: 'Deals on  Computers',
+		slug: '/category/electronics/3a000ce5-f591-4806-b8e5-6a63f71d49a1',
 		caption: 'Up to 60% Off',
 		photo:
 			'https://res.cloudinary.com/fichua-store/image/upload/v1657338930/tech-fifteen_qwfd3s.jpg',
@@ -130,6 +132,7 @@ export const deals = [
 	{
 		id: 17,
 		title: 'Deals on  Shoes',
+		slug: 'category/fashion/3d815131-b9b9-42df-9753-c606e911ef7b',
 		caption: 'Enjoy up to 25% off',
 		photo:
 			'https://res.cloudinary.com/fichua-store/image/upload/v1657339002/men-official-shoes_i1dswt.jpg',
