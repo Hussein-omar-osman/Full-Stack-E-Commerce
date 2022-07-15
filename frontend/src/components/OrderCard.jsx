@@ -86,7 +86,7 @@ const OrderCard = (props) => {
 								<AiOutlineMinus />
 							</Button>
 							<Card.Subtitle className='text-muted p-3'>{count}</Card.Subtitle>
-							<Button onClick={increment}>
+							<Button className='text-white' onClick={increment}>
 								<AiOutlinePlus />
 							</Button>
 						</CardGroup>
