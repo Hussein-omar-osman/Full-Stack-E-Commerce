@@ -1,10 +1,10 @@
-# Fichua Online Store
+# Full-Stack-E-Commerce
 
 Fichua is an ecommerce web app that connects vendors and customers. Customers get to browser and discover products from different categories and find their favorite vendors. Vendors get to fulfil their business' potential by reaching our many users.
 
 ## Setup project locally
 
-Clone repository from https://github.com/devmiano/fichua
+Clone repository from https://github.com/Hussein-omar-osman/Full-Stack-E-Commerce.git
 
 - `cd fichua`
 
@@ -37,5 +37,5 @@ Clone repository from https://github.com/devmiano/fichua
 
 - `npm build` Build the frontend for the backend to receive the UI.
 
-- **Frontend Link**: https://fichua.vercel.app
+- **Frontend Link**:
 - **Django Endpoint**: https://fichuastore.herokuapp.com
